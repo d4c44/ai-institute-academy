@@ -1,0 +1,31 @@
+# Cloud/dev environment for GitHub Codespaces: the workspace container plus PostgreSQL 18
+# (the schema uses the built-in uuidv7(), which only PostgreSQL 18 has). The database is only
+# reachable inside this environment, so its throwaway password is not a secret.
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/base:ubuntu-24.04
+    volumes:
+      - ../..:/workspaces:cached
+    command: sleep infinity
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ai_institute
+      POSTGRES_PASSWORD: ai_institute
+      POSTGRES_DB: ai_institute
+    volumes:
+      # Postgres 18 images keep data under /var/lib/postgresql/<version>/, so mount the parent.
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ai_institute -d ai_institute"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  pgdata:

@@ -38,6 +38,10 @@ cp .env.example .env        # API_URL указывает на Go API
 npm run dev                 # http://localhost:3000
 ```
 
+## Открыть сайт через GitHub (Codespaces)
+
+GitHub Pages не запускает серверный код, поэтому сайт открывается через GitHub Codespaces: облачная среда сама поднимает PostgreSQL, Go API и сайт (`.devcontainer/`). Откройте https://codespaces.new/d4c44/ai-institute-academy?quickstart=1, нажмите «Create codespace», подождите 5–8 минут (первая сборка) и откройте вкладку Ports → строка Site. Адрес доступен только вам, пока вы вошли в GitHub. Среда засыпает через 30 минут простоя, при следующем запуске сайт поднимается сам, данные в базе сохраняются. Бесплатный лимит личного аккаунта: 120 ядро-часов в месяц.
+
 ## Деплой на сервер
 
 GitHub Actions собирает образы и обновляет свой сервер по SSH; настройка с нуля описана в [docs/DEPLOY.md](docs/DEPLOY.md).
