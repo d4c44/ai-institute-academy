@@ -1,0 +1,13 @@
+# {$SITE_ADDRESS} comes from .env: a domain name enables automatic HTTPS (Let's Encrypt), ":80" is plain HTTP.
+{$SITE_ADDRESS::80} {
+	encode zstd gzip
+
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		X-Frame-Options SAMEORIGIN
+		-Server
+	}
+
+	reverse_proxy web:3000
+}

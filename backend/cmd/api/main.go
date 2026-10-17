@@ -11,6 +11,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"strings"
 	"syscall"
 	"time"
 
@@ -46,10 +47,17 @@ func run(log *slog.Logger) error {
 	}
 	defer st.Close()
 
+	// Secure cookies are only sent over HTTPS, so they follow the public address: a production
+	// site still reached over plain HTTP (no domain yet) could not sign anyone in otherwise.
+	secure := cfg.Env == "production" && strings.HasPrefix(cfg.PublicURL, "https://")
+	if cfg.Env == "production" && !secure {
+		log.Warn("APP_URL is not https: session cookies are not marked Secure", "app_url", cfg.PublicURL)
+	}
+
 	srv := &http.Server{
 		Addr: cfg.Addr,
 		Handler: httpapi.New(st, log, httpapi.Options{
-			SecureCookies: cfg.Env == "production",
+			SecureCookies: secure,
 			PublicURL:     cfg.PublicURL,
 			Signature:     "N. Kulmurzaev",
 		}),

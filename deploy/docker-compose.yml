@@ -1,0 +1,78 @@
+# Production stack on one server: Caddy (HTTPS) → Next.js → Go API → PostgreSQL.
+# Images are built by GitHub Actions (.github/workflows/deploy.yml) and pulled from GHCR.
+# The deploy workflow copies this file and the Caddyfile to /opt/ai-academy on the server, next to
+# a .env made from .env.example. Step-by-step: docs/DEPLOY.md.
+#
+#   docker compose pull && docker compose up -d
+
+name: ai-academy
+
+services:
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      # A domain name (academy.example.kz) turns on automatic HTTPS; ":80" serves plain HTTP on the IP.
+      SITE_ADDRESS: ${SITE_ADDRESS:-:80}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - web
+
+  web:
+    image: ${REGISTRY:-ghcr.io/d4c44/ai-institute-academy}-web:${TAG:-latest}
+    restart: unless-stopped
+    environment:
+      API_URL: http://api:8080
+      APP_URL: ${APP_URL:?set APP_URL in .env}
+    depends_on:
+      - api
+
+  api:
+    image: ${REGISTRY:-ghcr.io/d4c44/ai-institute-academy}-api:${TAG:-latest}
+    restart: unless-stopped
+    environment: &api-env
+      DATABASE_URL: postgres://${POSTGRES_USER:-ai_institute}:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}@db:5432/${POSTGRES_DB:-ai_institute}
+      APP_ENV: production
+      # Certificate QR codes and the Secure flag of session cookies follow this address.
+      APP_URL: ${APP_URL:?set APP_URL in .env}
+      ADDR: ":8080"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  migrate:
+    image: ${REGISTRY:-ghcr.io/d4c44/ai-institute-academy}-api:${TAG:-latest}
+    command: ["migrate"]
+    environment: *api-env
+    restart: "no"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-ai_institute}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-ai_institute}
+    volumes:
+      # Postgres 18 images keep data under /var/lib/postgresql/<version>/, so mount the parent.
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:
+  caddy_data:
+  caddy_config:

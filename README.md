@@ -53,6 +53,10 @@ cp .env.example .env
 npm run dev                 # http://localhost:3000
 ```
 
+## Деплой на сервер
+
+GitHub Actions собирает образы и обновляет свой сервер по SSH; настройка с нуля описана в [docs/DEPLOY.md](docs/DEPLOY.md).
+
 ## Через Docker
 
 ```bash

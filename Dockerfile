@@ -9,6 +9,10 @@ RUN npm ci
 FROM node:24-bookworm-slim AS builder
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1 NEXT_OUTPUT=standalone
+# next.config.ts bakes the /api/v1 rewrite target into the build, so the API address has to be known here
+# (it is also set at run time for server-side calls). The default matches docker-compose.
+ARG API_URL=http://api:8080
+ENV API_URL=$API_URL
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # The build never calls the API (catalog data streams at request time).
