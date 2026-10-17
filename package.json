@@ -7,11 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "next typegen && tsc --noEmit",
-    "dev:demo": "node scripts/demo.mjs dev",
-    "build:demo": "node scripts/demo.mjs build",
-    "start:demo": "node scripts/demo.mjs start",
-    "demo:content": "cd backend && go run ./cmd/seed dump ../src/demo/content.json"
+    "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",

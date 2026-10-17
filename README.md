@@ -10,26 +10,11 @@
 
 Браузер всегда обращается к Next.js; запросы `/api/v1/*` Next.js проксирует в Go API, поэтому cookie сессии работают без CORS.
 
-## Демо-режим: без Go и без базы
-
-Пока в `.env` не задан `API_URL`, обычный `npm run dev` работает в демо-режиме, ничего настраивать не нужно:
-
-```bash
-npm install
-npm run dev           # http://localhost:3000  (то же самое: npm run dev:demo)
-```
-
-Чтобы подключить настоящий бэкенд, раскомментируйте `API_URL` в `.env` (или задайте `DEMO_MODE=0`). В production демо-режим включается только явно (`DEMO_MODE=1`).
-
-Сайт сам отвечает на `/api/v1/*` из памяти (`src/demo/`), формат и правила те же, что у Go-API: блокировки модулей, проверка тестов, выдача сертификатов. Вход: **demo** / **Demo-2026!** (на странице входа есть кнопка «Подставить демо-аккаунт»), либо зарегистрируйте нового пользователя. Образец сертификата с главной страницы (`AIKAU-26-7K3M-9QX2`) в этом режиме проверяется на `/verify`.
-
-Ограничения: данные живут в памяти и пропадают при перезапуске; PDF не создаётся (откройте страницу сертификата и нажмите Ctrl+P); лимитов на вход нет. Для production-сборки используйте `npm run build:demo` и `npm run start:demo`: режим выбирается на этапе сборки. Тексты курсов берутся из Go-сида, после их изменения выполните `npm run demo:content`.
-
 ## Быстрый старт
 
 Нужны Node.js 22+, Go 1.27+ и PostgreSQL 18.
 
-**1. База данных (один раз).** От имени суперпользователя `postgres`:
+**1. База данных (один раз).** На Windows: впишите пароль в `backend/.env` (`DATABASE_URL`, образец в `backend/.env.example`) и выполните `& .\backend\db\setup-local.ps1`, скрипт спросит пароль суперпользователя `postgres`. На других системах от имени суперпользователя:
 
 ```bash
 psql -U postgres -h localhost -v app_password='ВАШ_ПАРОЛЬ' -f backend/db/init.sql
@@ -41,7 +26,7 @@ psql -U postgres -h localhost -v app_password='ВАШ_ПАРОЛЬ' -f backend/d
 cd backend
 cp .env.example .env        # впишите тот же пароль в DATABASE_URL
 go run ./cmd/api migrate    # применить миграции
-go run ./cmd/seed           # демо-курсы (необязательно)
+go run ./cmd/seed           # примеры курсов на четырёх языках (необязательно)
 go run ./cmd/api            # http://localhost:8080
 ```
 
@@ -49,7 +34,7 @@ go run ./cmd/api            # http://localhost:8080
 
 ```bash
 npm install
-cp .env.example .env
+cp .env.example .env        # API_URL указывает на Go API
 npm run dev                 # http://localhost:3000
 ```
 
@@ -132,7 +117,7 @@ backend/migrations/        SQL-миграции (встраиваются в б�
 
 ### Тексты курсов на нескольких языках
 
-Оригинал курса лежит в обычных колонках на языке `courses.language`, переводы — в колонках `i18n` (jsonb, ключ — язык) таблиц `courses`, `modules`, `lessons`, `quizzes`, `questions`, `question_options`. API отдаёт перевод по `?lang=`, а если его нет — оригинал; поле `language` в ответе — язык отданного текста, `languages` — все доступные. Для демо-курсов переводы лежат в `backend/cmd/seed/i18n/<slug>.<lang>.json` и сопоставляются с оригиналом по порядку (N-й модуль, N-й урок, N-й вопрос); `go run ./cmd/seed` проверяет форму файла и записывает переводы, в том числе в уже существующие курсы. После правок: `npm run demo:content` (пересобирает `src/demo/content.json` для демо-режима).
+Оригинал курса лежит в обычных колонках на языке `courses.language`, переводы — в колонках `i18n` (jsonb, ключ — язык) таблиц `courses`, `modules`, `lessons`, `quizzes`, `questions`, `question_options`. API отдаёт перевод по `?lang=`, а если его нет — оригинал; поле `language` в ответе — язык отданного текста, `languages` — все доступные. Для демо-курсов переводы лежат в `backend/cmd/seed/i18n/<slug>.<lang>.json` и сопоставляются с оригиналом по порядку (N-й модуль, N-й урок, N-й вопрос); `go run ./cmd/seed` проверяет форму файла и записывает переводы, в том числе в уже существующие курсы.
 
 ## План
 

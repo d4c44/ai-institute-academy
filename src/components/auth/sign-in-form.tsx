@@ -11,7 +11,7 @@ import { PasswordInput } from "./password-input";
 
 const KNOWN_ERRORS = ["invalid_credentials", "rate_limited", "network"] as const;
 
-export function SignInForm({ next, demo }: { next?: string; demo?: { login: string; password: string } }) {
+export function SignInForm({ next }: { next?: string }) {
   const t = useTranslations("Auth");
   const router = useRouter();
   const [login, setLogin] = useState("");
@@ -40,25 +40,6 @@ export function SignInForm({ next, demo }: { next?: string; demo?: { login: stri
         <p role="alert" className="rounded-md border border-destructive/40 bg-tint px-3 py-2 text-sm text-destructive">
           {t(`errors.${error}` as never)}
         </p>
-      ) : null}
-
-      {demo ? (
-        <div role="note" className="flex flex-col gap-2 rounded-md border border-primary/30 bg-tint p-3 text-sm">
-          <p className="font-semibold">{t("demo.title")}</p>
-          <p>{t("demo.credentials", { login: demo.login, password: demo.password })}</p>
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            className="w-fit"
-            onClick={() => {
-              setLogin(demo.login);
-              setPassword(demo.password);
-            }}
-          >
-            {t("demo.fill")}
-          </Button>
-        </div>
       ) : null}
 
       <Field id="signin-login" label={t("loginOrEmailLabel")}>

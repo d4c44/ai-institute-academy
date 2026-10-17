@@ -32,8 +32,6 @@ jobs:
           test -z "$(gofmt -l .)" || { gofmt -l .; exit 1; }
           go vet ./...
           go test ./...
-          go run ./cmd/seed dump ../src/demo/content.json
-          git diff --exit-code -- ../src/demo/content.json
       - uses: actions/setup-node@v4
         with:
           node-version: 24

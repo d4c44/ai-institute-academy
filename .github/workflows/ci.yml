@@ -25,11 +25,6 @@ jobs:
         run: test -z "$(gofmt -l .)" || { gofmt -l .; exit 1; }
       - run: go vet ./...
       - run: go test ./...
-      # The demo mode ships a copy of the seed courses (translations included); it must not drift.
-      - name: Demo content is up to date
-        run: |
-          go run ./cmd/seed dump ../src/demo/content.json
-          git diff --exit-code -- ../src/demo/content.json
 
   frontend:
     name: Frontend (Next.js)

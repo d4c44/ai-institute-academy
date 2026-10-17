@@ -1,9 +1,7 @@
 import "server-only";
 import { getLocale } from "next-intl/server";
 import { cookies } from "next/headers";
-import { connection } from "next/server";
 import { cache } from "react";
-import { DEMO } from "@/demo/server";
 import { ApiError, apiFetch } from "./client";
 import type { CourseSummary } from "./catalog";
 
@@ -32,8 +30,6 @@ export type MyEnrollment = CourseSummary & {
 
 /** Asks the API for course text in the language of the page being rendered. */
 async function withLang(path: string): Promise<string> {
-  // The in-memory demo backend reads the clock (session expiry), which Cache Components forbids while prerendering.
-  if (DEMO) await connection();
   return `${path}${path.includes("?") ? "&" : "?"}lang=${await getLocale()}`;
 }
 

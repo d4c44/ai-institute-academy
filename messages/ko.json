@@ -198,11 +198,6 @@
       "password_too_short": "비밀번호는 8자 이상이어야 합니다.",
       "password_too_long": "비밀번호가 너무 깁니다 (최대 128자).",
       "password_needs_symbol": "특수문자를 1개 이상 추가하세요. 예: ! ? # $ _ -"
-    },
-    "demo": {
-      "title": "데모 모드",
-      "credentials": "아이디: {login} · 비밀번호: {password}",
-      "fill": "데모 계정 입력"
     }
   },
   "Account": {
@@ -351,8 +346,5 @@
     "hoursValue": "{hours}시간",
     "score": "최종 시험",
     "download": "PDF 다운로드"
-  },
-  "Demo": {
-    "banner": "데모 모드: 이 사이트에는 서버가 없습니다. 데이터는 메모리에 저장되며 재시작하면 초기화됩니다. {login} / {password}(으)로 로그인하세요."
   }
 }

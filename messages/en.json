@@ -198,11 +198,6 @@
       "password_too_short": "The password must be at least 8 characters.",
       "password_too_long": "The password is too long (128 characters maximum).",
       "password_needs_symbol": "Add at least one special character, e.g. ! ? # $ _ -"
-    },
-    "demo": {
-      "title": "Demo mode",
-      "credentials": "Login: {login} · Password: {password}",
-      "fill": "Fill in the demo account"
     }
   },
   "Account": {
@@ -351,8 +346,5 @@
     "hoursValue": "{hours} hours",
     "score": "Final exam",
     "download": "Download PDF"
-  },
-  "Demo": {
-    "banner": "Demo mode: no server behind this site. Data lives in memory and resets on restart. Sign in with {login} / {password}."
   }
 }
