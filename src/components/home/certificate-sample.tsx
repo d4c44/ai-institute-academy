@@ -32,7 +32,7 @@ async function SampleCertificate() {
       sample
       name={t("name")}
       course={t("course")}
-      hours={30}
+      hours={72}
       score={92}
       issuedAt={SAMPLE_DATE}
       code={SAMPLE_CODE}

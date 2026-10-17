@@ -98,7 +98,7 @@ function seed(): State {
     passwordHash: "!",
   };
   s.users.set(alumni.id, alumni);
-  const ml = COURSES.find((c) => c.slug === "machine-learning-fundamentals");
+  const ml = COURSES.find((c) => c.slug === "ai-tools-in-education");
   if (ml) {
     s.enrollments.set(`${alumni.id}|${ml.slug}`, { status: "COMPLETED", enrolledAt: now, completedAt: now });
     s.certs.push({
@@ -107,7 +107,7 @@ function seed(): State {
       userId: alumni.id,
       courseSlug: ml.slug,
       recipientName: alumni.fullName,
-      courseTitle: ml.title,
+      courseTitle: localized(ml, "en").title,
       courseHours: ml.hours,
       finalScore: 92,
       locale: "en",

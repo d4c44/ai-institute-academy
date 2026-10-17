@@ -1,5 +1,5 @@
-// Command seed loads demo content for local development: tracks, a published catalog in all
-// three languages, and one complete course (lessons, module quizzes, final exam).
+// Command seed loads the example content: the learning tracks and the course "AI tools in education"
+// (lessons, module quizzes, final exam) with its translations (i18n/*.json).
 //
 // Idempotent: courses are matched by slug and their scalar fields refreshed; a course's modules
 // are only created the first time, so content edited in the app isn't overwritten.
@@ -73,166 +73,8 @@ var tracks = []struct{ slug, name, description string }{
 	{"nlp", "Natural Language Processing", "Text processing, language models and NLP for Kazakh."},
 }
 
-func outline(titles ...string) []module {
-	m := make([]module, len(titles))
-	for i, t := range titles {
-		m[i] = module{title: t}
-	}
-	return m
-}
-
 var courses = []course{
 	{
-		slug:    "machine-learning-fundamentals",
-		title:   "Machine Learning Fundamentals",
-		summary: "Regression, classification, model evaluation and scikit-learn — the core toolkit of practical machine learning.",
-		description: "This course takes you from *what is a model?* to training and evaluating your own regression and classification models in Python.\n\n" +
-			"Each module ends with a short quiz; pass it to unlock the next one. Finish all lessons and pass the final exam to receive a verifiable certificate.",
-		language: "en", level: "INTERMEDIATE", track: "machine-learning", hours: 30, published: "2026-09-01T09:00:00Z",
-		outcomes: []string{
-			"Explain the difference between supervised, unsupervised and reinforcement learning",
-			"Train linear and logistic regression models with scikit-learn",
-			"Choose the right metric and evaluate a model on held-out data",
-			"Recognise and reduce overfitting",
-		},
-		prerequisites: []string{"Basic Python (variables, functions, lists)", "High-school algebra"},
-		modules: []module{
-			{
-				title: "Getting started with machine learning", description: "What machine learning is, where it is used, and how to set up your tools.",
-				lessons: []lesson{
-					{"What is machine learning?", "Machine learning is a way of building programs that **learn rules from data** instead of having every rule written by hand.\n\nA spam filter is a classic example: rather than listing every suspicious phrase, we show the model thousands of labelled emails and let it find the patterns that separate spam from normal mail.\n\n## Key terms\n\n- **Feature** — an input the model looks at (e.g. the number of links in an email)\n- **Label** — the answer we want to predict (spam / not spam)\n- **Model** — the function that maps features to a prediction\n- **Training** — adjusting the model so its predictions match the labels", 8, true},
-					{"Types of learning", "## Supervised learning\nThe training data includes the correct answers (labels). Predicting house prices or recognising handwritten digits are supervised problems.\n\n## Unsupervised learning\nThere are no labels; the model looks for structure on its own — for example grouping customers with similar behaviour (clustering).\n\n## Reinforcement learning\nAn agent learns by acting in an environment and receiving rewards or penalties, as in game-playing systems and robotics.", 10, false},
-					{"Setting up Python and scikit-learn", "We will use Python 3.12+, Jupyter and scikit-learn.\n\n```bash\npython -m venv .venv\npip install scikit-learn pandas matplotlib jupyter\n```\n\nCheck the installation:\n\n```python\nimport sklearn\nprint(sklearn.__version__)\n```", 12, false},
-				},
-				quiz: &quiz{title: "Module 1 quiz", questions: []question{
-					{prompt: "Grouping customers by purchasing behaviour without any labels is an example of…", explanation: "There are no correct answers in the data, so this is unsupervised learning (clustering).",
-						options: []option{{"Supervised learning", false}, {"Unsupervised learning", true}, {"Reinforcement learning", false}}},
-					{prompt: "In a spam filter, the value *spam / not spam* is the…",
-						options: []option{{"Feature", false}, {"Label", true}, {"Model", false}}},
-					{prompt: "A model learns rules from data instead of having them written by hand.", typ: "TRUE_FALSE",
-						options: []option{{"True", true}, {"False", false}}},
-				}},
-			},
-			{
-				title: "Regression", description: "Predicting continuous values and measuring how good those predictions are.",
-				lessons: []lesson{
-					{"Linear regression", "Linear regression fits a straight line (or a hyperplane) through the data:\n\n$\\hat{y} = w_1x_1 + w_2x_2 + \\dots + b$\n\n```python\nfrom sklearn.linear_model import LinearRegression\nmodel = LinearRegression().fit(X_train, y_train)\nprint(model.coef_, model.intercept_)\n```", 15, false},
-					{"Loss functions and gradient descent", "To train a model we need a number that says how wrong it is — the **loss**. For regression the usual choice is the mean squared error (MSE).\n\nGradient descent lowers the loss step by step: compute the gradient, move the weights a little in the opposite direction, repeat. The step size is the **learning rate**.", 15, false},
-					{"Evaluating regression models", "Always evaluate on data the model has **not** seen during training.\n\n- **MAE** — average absolute error, in the units of the target\n- **RMSE** — penalises large errors more\n- **R²** — share of variance explained (1.0 is perfect)\n\n```python\nfrom sklearn.model_selection import train_test_split\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n```", 12, false},
-				},
-				quiz: &quiz{title: "Module 2 quiz", questions: []question{
-					{prompt: "Which metric is expressed in the same units as the target variable?",
-						options: []option{{"R²", false}, {"MAE", true}, {"Accuracy", false}}},
-					{prompt: "What does the learning rate control in gradient descent?",
-						options: []option{{"The number of features", false}, {"The size of each update step", true}, {"The share of data used for testing", false}}},
-				}},
-			},
-			{
-				title: "Classification", description: "Predicting categories, and why accuracy alone can be misleading.",
-				lessons: []lesson{
-					{"Logistic regression", "Despite its name, logistic regression is a **classification** model. It passes a linear score through the sigmoid function to get a probability between 0 and 1.\n\n```python\nfrom sklearn.linear_model import LogisticRegression\nclf = LogisticRegression(max_iter=1000).fit(X_train, y_train)\nclf.predict_proba(X_test[:5])\n```", 14, false},
-					{"Decision trees and random forests", "A decision tree splits the data with a sequence of yes/no questions. Single trees overfit easily; a **random forest** trains many trees on random subsets of the data and averages their votes, which is far more robust.", 16, false},
-					{"Precision, recall and F1", "On imbalanced data, accuracy can be misleading: a model that always predicts *not fraud* is 99% accurate if fraud is 1% of cases.\n\n- **Precision** — of the items flagged positive, how many really are\n- **Recall** — of the real positives, how many we found\n- **F1** — the harmonic mean of the two", 14, false},
-				},
-				quiz: &quiz{title: "Module 3 quiz", questions: []question{
-					{prompt: "Logistic regression is mainly used for…",
-						options: []option{{"Regression", false}, {"Classification", true}, {"Clustering", false}}},
-					{prompt: "Which metrics are better than accuracy on heavily imbalanced data? (Select all that apply)", typ: "MULTIPLE_CHOICE",
-						options: []option{{"Precision", true}, {"Recall", true}, {"Training time", false}}},
-				}},
-			},
-		},
-		finalExam: &quiz{title: "Final exam", questions: []question{
-			{prompt: "Why do we evaluate a model on a separate test set?",
-				options: []option{{"To train faster", false}, {"To estimate performance on unseen data", true}, {"To increase the number of features", false}}},
-			{prompt: "A random forest is…",
-				options: []option{{"A single deep decision tree", false}, {"An ensemble of decision trees whose votes are combined", true}, {"A type of linear regression", false}}},
-			{prompt: "Mean squared error is a typical loss function for regression.", typ: "TRUE_FALSE",
-				options: []option{{"True", true}, {"False", false}}},
-			{prompt: "Which of these are supervised learning tasks? (Select all that apply)", typ: "MULTIPLE_CHOICE",
-				options: []option{{"Predicting house prices", true}, {"Detecting spam from labelled emails", true}, {"Clustering customers without labels", false}}},
-		}},
-	},
-	{
-		slug:    "ai-basics",
-		title:   "Основы искусственного интеллекта",
-		summary: "Что такое ИИ, как машины учатся на данных и где это применяется. Короткий курс без программирования, после которого вы получите сертификат.",
-		description: "Вводный курс для тех, кто хочет разобраться, что стоит за словами «искусственный интеллект» и «машинное обучение».\n\n" +
-			"Три модуля: история и основные понятия, принципы обучения моделей, применение и этика. В конце каждого модуля короткий тест, в конце курса итоговый экзамен. " +
-			"Чтобы получить сертификат, нужно пройти все уроки и сдать все тесты. Опыт программирования не требуется.",
-		language: "ru", level: "BEGINNER", track: "ai-foundations", hours: 6, published: "2026-10-10T09:00:00Z",
-		outcomes: []string{
-			"Объяснить, что такое искусственный интеллект, и отличить узкий ИИ от общего",
-			"Описать, как модель обучается на данных, и назвать три основных типа обучения",
-			"Распознавать переобучение и объяснить, зачем нужна проверка на новых данных",
-			"Оценить этические риски применения ИИ: предвзятость, приватность, ответственность",
-		},
-		prerequisites: []string{},
-		modules: []module{
-			{
-				title: "Что такое искусственный интеллект", description: "Определение, краткая история и виды ИИ.",
-				lessons: []lesson{
-					{"Определение и краткая история", "**Искусственный интеллект (ИИ)** — область информатики, в которой создают программы, способные решать задачи, обычно требующие человеческого интеллекта: распознавать речь и изображения, переводить тексты, принимать решения.\n\n## Ключевые вехи\n\n- **1950** — Алан Тьюринг публикует статью «Вычислительные машины и разум» и предлагает тест, названный его именем.\n- **1956** — на Дартмутском семинаре Джон Маккарти вводит термин «искусственный интеллект».\n- **1997** — шахматная программа Deep Blue обыгрывает чемпиона мира Гарри Каспарова.\n- **2016** — AlphaGo побеждает Ли Седоля в игре го.\n- **2020-е** — большие языковые модели учатся вести диалог и писать тексты.\n\nРазвитие шло волнами: периоды больших ожиданий сменялись «зимами ИИ», когда финансирование сокращалось, потому что результаты не оправдывали обещаний.", 6, true},
-					{"Узкий и общий ИИ", "Все системы ИИ, которые существуют сегодня, относятся к **узкому ИИ**: они хорошо решают одну конкретную задачу и не умеют переносить навыки на другие.\n\n## Виды ИИ\n\n- **Узкий ИИ (ANI)** — шахматная программа, рекомендательная система, голосовой помощник. Эти системы не понимают мир, они находят закономерности в данных.\n- **Общий ИИ (AGI)** — гипотетическая система, способная решать любые интеллектуальные задачи на уровне человека. Пока её не существует.\n- **Сверхразум** — ещё более гипотетическая система, превосходящая человека во всех областях.\n\nКогда в новостях говорят «ИИ сдал экзамен» или «ИИ нарисовал картину», речь идёт об узком ИИ, очень мощном, но специализированном.", 5, false},
-				},
-				quiz: &quiz{title: "Тест по модулю 1", passing: 60, questions: []question{
-					{prompt: "В каком году на Дартмутском семинаре был введён термин «искусственный интеллект»?", explanation: "Термин предложил Джон Маккарти в 1956 году при подготовке Дартмутского семинара.",
-						options: []option{{"1956", true}, {"1926", false}, {"1989", false}}},
-					{prompt: "К какому виду относятся все существующие сегодня системы ИИ?", explanation: "Общего ИИ (AGI) пока не существует, все современные системы специализированы.",
-						options: []option{{"Общий ИИ (AGI)", false}, {"Узкий ИИ (ANI)", true}, {"Сверхразум", false}}},
-					{prompt: "Шахматная программа Deep Blue обыграла чемпиона мира Гарри Каспарова.", typ: "TRUE_FALSE", explanation: "Это произошло в 1997 году.",
-						options: []option{{"Верно", true}, {"Неверно", false}}},
-				}},
-			},
-			{
-				title: "Как машины учатся", description: "Данные, признаки, модели и три типа обучения.",
-				lessons: []lesson{
-					{"Данные, признаки и модели", "В классическом программировании человек пишет правила, а компьютер их выполняет. В **машинном обучении** наоборот: человек даёт примеры, а программа сама находит правила.\n\n## Основные понятия\n\n- **Данные** — примеры, на которых учится система (письма, снимки, таблицы).\n- **Признак** — измеримая характеристика примера: число ссылок в письме, площадь квартиры, возраст клиента.\n- **Метка** — правильный ответ, который нужно предсказывать: «спам» или «не спам», цена квартиры.\n- **Модель** — математическая функция, которая по признакам выдаёт предсказание.\n- **Обучение** — подбор параметров модели так, чтобы её предсказания совпадали с метками на обучающих данных.\n\nКачество модели почти всегда упирается в качество данных: ошибки и перекосы в данных переходят в модель.", 7, false},
-					{"Три типа обучения", "## Обучение с учителем\n\nВ данных есть правильные ответы (метки). Модель учится их предсказывать. Примеры: определение спама, прогноз цены, распознавание рукописных цифр.\n\n## Обучение без учителя\n\nМеток нет, модель ищет структуру сама. Пример: разбиение клиентов на группы со схожим поведением (кластеризация).\n\n## Обучение с подкреплением\n\nАгент действует в среде и получает награду или штраф. Так учатся игровые программы и роботы: они пробуют, оценивают результат и улучшают стратегию.", 6, false},
-					{"Переобучение и проверка модели", "Модель, которая идеально запомнила обучающие примеры, может плохо работать на новых данных. Это называется **переобучением**.\n\nПредставьте студента, который выучил ответы на билеты наизусть: на знакомые вопросы он отвечает отлично, а при малейшем изменении формулировки теряется.\n\n## Как защититься\n\n1. Делить данные на **обучающую** и **тестовую** выборки и оценивать качество только на тестовой.\n2. Использовать больше разнообразных данных.\n3. Выбирать более простую модель, если сложная переобучается.\n\nЧестная оценка всегда делается на данных, которые модель не видела во время обучения.", 6, false},
-				},
-				quiz: &quiz{title: "Тест по модулю 2", passing: 60, questions: []question{
-					{prompt: "Как называется правильный ответ, который модель учится предсказывать?", explanation: "Метка — это целевое значение для каждого примера в обучающих данных.",
-						options: []option{{"Признак", false}, {"Метка", true}, {"Параметр", false}}},
-					{prompt: "Разбиение клиентов на группы без заранее известных категорий — пример…", explanation: "Меток нет, модель сама ищет структуру: это обучение без учителя (кластеризация).",
-						options: []option{{"Обучения с учителем", false}, {"Обучения без учителя", true}, {"Обучения с подкреплением", false}}},
-					{prompt: "Что такое переобучение?", explanation: "Модель запоминает обучающие примеры вместо того, чтобы находить общие закономерности.",
-						options: []option{{"Модель плохо работает и на обучающих, и на новых данных", false}, {"Модель хорошо работает на обучающих данных, но плохо на новых", true}, {"Модель обучали слишком мало времени", false}}},
-					{prompt: "Выберите все верные способы бороться с переобучением.", typ: "MULTIPLE_CHOICE", explanation: "Проверка на тестовой выборке, больше разнообразных данных и более простая модель помогают. Оценка на обучающих данных переобучение не выявляет.",
-						options: []option{{"Оценивать качество на тестовой выборке", true}, {"Собрать больше разнообразных данных", true}, {"Оценивать качество только на обучающих данных", false}}},
-				}},
-			},
-			{
-				title: "ИИ в жизни и этика", description: "Где применяется ИИ и какие вопросы ответственности он поднимает.",
-				lessons: []lesson{
-					{"Где применяется ИИ", "Системы ИИ уже встроены в привычные сервисы:\n\n- **Медицина** — анализ снимков и поддержка врача при постановке диагноза.\n- **Транспорт** — навигация, прогноз пробок, системы помощи водителю.\n- **Образование** — адаптивные тренажёры, автоматическая проверка заданий.\n- **Сельское хозяйство** — анализ спутниковых снимков полей, прогноз урожайности.\n- **Банки и торговля** — выявление мошенничества, рекомендации товаров.\n- **Язык** — машинный перевод, голосовые помощники, поиск.\n\nВо всех этих случаях ИИ усиливает человека, но не заменяет ответственность за решение.", 5, false},
-					{"Этика, предвзятость и ответственность", "Модель учится на данных, поэтому повторяет их перекосы. Если в прошлых данных о найме предпочтение отдавалось определённой группе, модель может воспроизвести эту предвзятость.\n\n## Ключевые вопросы\n\n- **Предвзятость и справедливость** — одинаково ли система работает для разных групп людей?\n- **Приватность** — какие личные данные собираются и как они защищены?\n- **Объяснимость** — можно ли понять, почему система приняла именно такое решение?\n- **Ответственность** — кто отвечает за ошибку: разработчик, владелец сервиса, пользователь?\n\nПринцип ответственного применения прост: важные решения о людях не должны приниматься без человеческого контроля и возможности обжалования.", 6, false},
-				},
-				quiz: &quiz{title: "Тест по модулю 3", passing: 60, questions: []question{
-					{prompt: "Почему модель может быть предвзятой?", explanation: "Модель учится на данных и воспроизводит перекосы, которые в них есть.",
-						options: []option{{"Потому что она учится на данных, в которых есть перекосы", true}, {"Потому что компьютеры не умеют считать точно", false}, {"Потому что модель сама придумывает правила", false}}},
-					{prompt: "Что означает объяснимость системы ИИ?", explanation: "Объяснимость — возможность понять причины конкретного решения системы.",
-						options: []option{{"Система работает быстро", false}, {"Можно понять, почему система приняла именно такое решение", true}, {"Система имеет понятный интерфейс", false}}},
-					{prompt: "Важные решения о людях должны приниматься без участия человека, если модель точная.", typ: "TRUE_FALSE", explanation: "Даже точная модель ошибается. Важные решения требуют человеческого контроля и возможности обжалования.",
-						options: []option{{"Верно", false}, {"Неверно", true}}},
-				}},
-			},
-		},
-		finalExam: &quiz{title: "Итоговый экзамен", passing: 70, questions: []question{
-			{prompt: "Кто предложил тест, позволяющий оценить, обладает ли машина интеллектом?", explanation: "Алан Тьюринг описал этот тест в статье 1950 года.",
-				options: []option{{"Алан Тьюринг", true}, {"Джон Маккарти", false}, {"Гарри Каспаров", false}}},
-			{prompt: "Какая система ИИ существует на сегодняшний день?", explanation: "Все современные системы — узкий ИИ. Общий ИИ и сверхразум пока гипотетические.",
-				options: []option{{"Общий ИИ, решающий любые задачи", false}, {"Узкий ИИ, решающий конкретные задачи", true}, {"Сверхразум", false}}},
-			{prompt: "Признак — это…", explanation: "Признак — измеримая характеристика примера, по которой модель делает предсказание.",
-				options: []option{{"Правильный ответ для примера", false}, {"Измеримая характеристика примера", true}, {"Результат проверки модели", false}}},
-			{prompt: "В каких задачах используется обучение с подкреплением?", explanation: "Агент получает награду или штраф за действия: так учатся игровые программы и роботы.",
-				options: []option{{"Когда есть размеченные примеры с ответами", false}, {"Когда агент получает награду или штраф за действия", true}, {"Когда нужно разбить данные на группы", false}}},
-			{prompt: "Для честной оценки качества модели нужно использовать…", explanation: "Оценка на данных, которые модель не видела, показывает, как она будет работать в реальности.",
-				options: []option{{"Только обучающие данные", false}, {"Данные, которые модель не видела при обучении", true}, {"Любые данные, это не важно", false}}},
-			{prompt: "Выберите все вопросы, относящиеся к этике применения ИИ.", typ: "MULTIPLE_CHOICE", explanation: "Предвзятость, приватность и ответственность — ключевые этические вопросы. Скорость интерфейса к этике не относится.",
-				options: []option{{"Предвзятость и справедливость", true}, {"Приватность данных", true}, {"Цвет оформления интерфейса", false}, {"Ответственность за ошибки системы", true}}},
-		}},
-	}, {
 		slug:    "ai-tools-in-education",
 		title:   "Білім беру саласындағы жасанды интеллект құралдары",
 		summary: "Оқытушыларға арналған біліктілікті арттыру курсы: жасанды интеллектті сабақ жоспарлауда, оқу материалдарын даярлауда, бағалауда қолдану және академиялық адалдықты сақтау.",
@@ -337,51 +179,7 @@ var courses = []course{
 				options: []option{{"Қолдану ережесін алдын ала хабарлау", true}, {"Жасанды интеллект көмегін көрсетуді талап ету", true}, {"Тапсырманы жеке тәжірибеге және ауызша қорғауға негіздеу", true}, {"Тек анықтау бағдарламасына сүйеніп студентті айыптау", false}}},
 			{prompt: "Галлюцинация қаупі қай жерде жоғары?", explanation: "Қате әсіресе дәйексөздер, сілтемелер және нақты сандарда жиі кездеседі.",
 				options: []option{{"Дәйексөздерде, сілтемелерде және нақты сандарда", true}, {"Сәлемдесу сөздерінде", false}, {"Мәтін пішімінде", false}}},
-		}}}, {
-		slug: "intro-to-ai", title: "Жасанды интеллектке кіріспе",
-		summary:     "Жасанды интеллекттің негізгі ұғымдары, тарихы және күнделікті өмірдегі қолданылуы. Бағдарламалау тәжірибесі қажет емес.",
-		description: "Бұл курс жасанды интеллект әлеміне алғашқы қадам жасағысы келетіндерге арналған.",
-		language:    "kk", level: "BEGINNER", track: "ai-foundations", hours: 12, published: "2026-09-10T09:00:00Z",
-		outcomes: []string{"ЖИ, машиналық оқыту және терең оқыту ұғымдарын ажырату", "ЖИ-дің этикалық мәселелерін түсіну"},
-		modules:  outline("Жасанды интеллект деген не?", "ЖИ тарихы мен негізгі кезеңдері", "Машиналық оқытуға алғашқы қадам", "ЖИ этикасы және жауапкершілігі"),
-	},
-	{
-		slug: "python-for-data-analysis", title: "Python для анализа данных",
-		summary:     "Основы Python, NumPy и pandas: загрузка, очистка и визуализация данных для будущих задач машинного обучения.",
-		description: "Практический курс для тех, кто хочет уверенно работать с данными перед изучением машинного обучения.",
-		language:    "ru", level: "BEGINNER", track: "ai-foundations", hours: 20, published: "2026-08-20T09:00:00Z",
-		outcomes: []string{"Писать простые программы на Python", "Очищать и анализировать табличные данные в pandas"},
-		modules:  outline("Основы Python", "NumPy: работа с массивами", "pandas: таблицы и очистка данных", "Визуализация с matplotlib"),
-	},
-	{
-		slug: "deep-learning-neural-networks", title: "Нейронные сети и глубокое обучение",
-		summary:     "От перцептрона до трансформеров: обучение нейросетей на PyTorch, регуляризация и оптимизация.",
-		description: "Курс для студентов, уже знакомых с основами машинного обучения.",
-		language:    "ru", level: "ADVANCED", track: "deep-learning", hours: 40, published: "2026-09-15T09:00:00Z",
-		outcomes:      []string{"Обучать и отлаживать нейросети на PyTorch", "Понимать устройство трансформеров"},
-		prerequisites: []string{"Основы машинного обучения", "Python и NumPy", "Линейная алгебра"},
-		modules: outline("Перцептрон и многослойные сети", "Обратное распространение ошибки", "Свёрточные сети (CNN)",
-			"Рекуррентные сети и трансформеры", "Регуляризация и оптимизация"),
-	},
-	{
-		slug: "computer-vision-pytorch", title: "Computer Vision with PyTorch",
-		summary:     "Train CNNs for image classification, then move on to object detection and segmentation with modern architectures.",
-		description: "A hands-on course in modern computer vision.",
-		language:    "en", level: "ADVANCED", track: "computer-vision", hours: 36, published: "2026-09-25T09:00:00Z",
-		outcomes:      []string{"Fine-tune pretrained vision models", "Build an object detection pipeline"},
-		prerequisites: []string{"Deep learning basics", "PyTorch"},
-		modules:       outline("Images as tensors", "Convolutional neural networks", "Transfer learning", "Object detection", "Image segmentation"),
-	},
-	{
-		slug: "kazakh-nlp", title: "Қазақ тіліне арналған табиғи тілді өңдеу",
-		summary:     "Қазақ тіліндегі мәтіндерді токенизациялау, морфологиялық талдау және трансформер модельдерін қолдану.",
-		description: "Қазақ тілінің ерекшеліктерін ескере отырып, NLP әдістерін практикада үйренеміз.",
-		language:    "kk", level: "INTERMEDIATE", track: "nlp", hours: 24, published: "2026-10-01T09:00:00Z",
-		outcomes:      []string{"Қазақ тіліндегі мәтінді алдын ала өңдеу", "Мәтінді жіктеу моделін оқыту"},
-		prerequisites: []string{"Python", "Машиналық оқыту негіздері"},
-		modules: outline("Қазақ тілінің морфологиясы және токенизация", "Сөз векторлары (word embeddings)",
-			"Трансформер модельдері", "Мәтінді жіктеу және атаулы нысандарды тану"),
-	},
+		}}},
 }
 
 func main() {
