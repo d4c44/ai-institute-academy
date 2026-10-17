@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BASE_PATH } from "@/lib/static";
 import { cn } from "@/lib/utils";
 
 // The institute's mark (public/brand/logo.png, royal blue #0028B3 on transparent, recoloured from the original
@@ -6,7 +7,7 @@ import { cn } from "@/lib/utils";
 export function LogoMark({ className }: { className?: string }) {
   return (
     <Image
-      src="/brand/logo.png"
+      src={`${BASE_PATH}/brand/logo.png`}
       alt=""
       width={225}
       height={225}

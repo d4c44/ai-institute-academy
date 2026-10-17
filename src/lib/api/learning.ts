@@ -1,3 +1,5 @@
+import { BASE_PATH, STATIC } from "@/lib/static";
+
 // Shapes mirror backend/internal/store/learning.go and certificates.go.
 
 export type NextUnit = { kind: "lesson" | "quiz" | "final"; id: string };
@@ -129,8 +131,26 @@ export function unitHref(slug: string, unit: NextUnit | null): string {
   return unit.kind === "lesson" ? `/learn/${slug}/lessons/${unit.id}` : `/learn/${slug}/quizzes/${unit.id}`;
 }
 
-/** Public URL (same origin, via the Next.js rewrite) of the certificate PDF. */
+/** Link target (for the i18n Link/router) of a certificate's public page. */
+export function verifyHref(code: string) {
+  // The static site cannot have a page per code: it reads the code from the query string.
+  return STATIC ? { pathname: "/verify" as const, query: { code } } : (`/verify/${encodeURIComponent(code)}` as const);
+}
+
+/** Absolute URL of a certificate's page, as encoded in its QR code. `base` is the site's origin. */
+export function publicVerifyUrl(base: string, locale: string, code: string): string {
+  const root = base.replace(/\/$/, "");
+  return STATIC
+    ? `${root}${BASE_PATH}/${locale}/verify/?${new URLSearchParams({ code })}`
+    : `${root}/verify/${encodeURIComponent(code)}`;
+}
+
+/**
+ * Where the PDF of a certificate comes from. The Go API renders it; the static site has no PDF, so it
+ * opens the certificate page and prints it (the browser can save that as PDF).
+ */
 export function certificatePdfUrl(code: string, lang: string, download = false): string {
+  if (STATIC) return `${BASE_PATH}/${lang}/verify/?${new URLSearchParams({ code, print: "1" })}`;
   const qs = new URLSearchParams({ lang });
   if (download) qs.set("download", "1");
   return `/api/v1/certificates/${encodeURIComponent(code)}/pdf?${qs}`;

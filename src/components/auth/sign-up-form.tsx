@@ -1,19 +1,22 @@
 "use client";
 
 import { CheckIcon, CircleIcon } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link, useRouter } from "@/i18n/navigation";
 import { apiSend, passwordRules } from "@/lib/api/browser";
+import { safeNextPath } from "@/lib/api/next-path";
 import { cn } from "@/lib/utils";
 import { Field, inputClass } from "./field";
 import { PasswordInput } from "./password-input";
 
 const YEARS = [1, 2, 3, 4, 5, 6];
 
-export function SignUpForm({ next }: { next?: string }) {
+export function SignUpForm() {
+  const next = safeNextPath(useSearchParams().get("next"));
   const t = useTranslations("Auth");
   const locale = useLocale();
   const router = useRouter();

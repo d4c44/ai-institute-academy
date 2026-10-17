@@ -1,10 +1,10 @@
 import { getTranslations } from "next-intl/server";
-import { connection } from "next/server";
+import { atRequestTime } from "@/lib/runtime";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getStats } from "@/lib/api/catalog";
 
 export async function Stats() {
-  await connection();
+  await atRequestTime();
   const stats = await getStats().catch(() => null);
   if (!stats) return null;
   const t = await getTranslations("Home.stats");

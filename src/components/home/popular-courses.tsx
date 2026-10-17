@@ -1,5 +1,5 @@
 import { getLocale, getTranslations } from "next-intl/server";
-import { connection } from "next/server";
+import { atRequestTime } from "@/lib/runtime";
 import { Suspense } from "react";
 import { CourseCard } from "@/components/course/course-card";
 import { buttonVariants } from "@/components/ui/button";
@@ -31,7 +31,7 @@ export async function PopularCourses() {
 }
 
 async function CoursesGrid() {
-  await connection();
+  await atRequestTime();
   const locale = await getLocale();
   const courses = await getPopularCourses(locale, 8).catch(() => null);
   if (!courses) return <Unavailable />;

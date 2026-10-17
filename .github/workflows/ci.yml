@@ -25,6 +25,11 @@ jobs:
         run: test -z "$(gofmt -l .)" || { gofmt -l .; exit 1; }
       - run: go vet ./...
       - run: go test ./...
+      # The static (Pages) site ships a copy of the seed courses, translations included; it must not drift.
+      - name: Static content is up to date
+        run: |
+          go run ./cmd/seed dump ../src/static/content.json
+          git diff --exit-code -- ../src/static/content.json
 
   frontend:
     name: Frontend (Next.js)
@@ -38,6 +43,10 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm run lint
+      - name: Static (Pages) build
+        run: npm run build:static
+        env:
+          PAGES_BASE_PATH: /ai-institute-academy
       - run: npm run build
         env:
           NEXT_TELEMETRY_DISABLED: "1"

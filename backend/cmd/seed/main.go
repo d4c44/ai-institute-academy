@@ -385,6 +385,12 @@ var courses = []course{
 }
 
 func main() {
+	if len(os.Args) >= 3 && os.Args[1] == "dump" {
+		if err := dump(os.Args[2]); err != nil {
+			log.Fatal(err)
+		}
+		return
+	}
 	if err := run(); err != nil {
 		log.Fatal(err)
 	}

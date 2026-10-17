@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { connection } from "next/server";
+import { atRequestTime } from "@/lib/runtime";
 import { Suspense } from "react";
 import { trackName } from "@/components/course/track-name";
 import { Unavailable } from "@/components/home/unavailable";
@@ -22,7 +22,7 @@ export async function TracksSection() {
 }
 
 async function TracksGrid() {
-  await connection();
+  await atRequestTime();
   const tracks = await getTracks().catch(() => null);
   if (!tracks) return <Unavailable />;
   const t = await getTranslations("Home.tracks");

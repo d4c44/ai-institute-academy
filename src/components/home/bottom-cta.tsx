@@ -3,7 +3,9 @@ import { Suspense } from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { getCurrentUser } from "@/lib/api/auth";
+import { STATIC } from "@/lib/static";
 import { cn } from "@/lib/utils";
+import { StaticCtaLink } from "@/components/site/static-auth";
 
 export async function BottomCta() {
   const t = await getTranslations("Home.cta");
@@ -25,6 +27,7 @@ export async function BottomCta() {
 }
 
 async function CtaForVisitor() {
+  if (STATIC) return <StaticCtaLink />;
   const user = await getCurrentUser().catch(() => null);
   return <CtaLink signedIn={Boolean(user)} />;
 }

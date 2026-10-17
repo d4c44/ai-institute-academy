@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "@/i18n/navigation";
+import { verifyHref } from "@/lib/api/learning";
 
 export function VerifyForm({ className }: { className?: string }) {
   const t = useTranslations("Home.hero");
@@ -14,7 +15,7 @@ export function VerifyForm({ className }: { className?: string }) {
       onSubmit={(event) => {
         event.preventDefault();
         const code = String(new FormData(event.currentTarget).get("code") ?? "").trim();
-        router.push(code ? `/verify/${encodeURIComponent(code.toUpperCase())}` : "/verify");
+        router.push(code ? verifyHref(code.toUpperCase()) : "/verify");
       }}
     >
       <label className="block text-sm font-semibold" htmlFor="certificate-code">

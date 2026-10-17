@@ -1,11 +1,11 @@
 import QRCode from "qrcode";
-import { getFormatter, getTranslations } from "next-intl/server";
+import { useFormatter, useTranslations } from "next-intl";
 import { LogoMark } from "@/components/site/logo";
 import { cn } from "@/lib/utils";
 
 // An HTML rendition of the A4 landscape PDF the API produces. Sizes use container-query units
 // (cqw), so the whole document scales as one piece at any width.
-export async function CertificateDocument({
+export function CertificateDocument({
   name,
   course,
   hours,
@@ -28,9 +28,9 @@ export async function CertificateDocument({
   revoked?: boolean;
   className?: string;
 }) {
-  const t = await getTranslations("Certificate");
-  const brand = await getTranslations("Brand");
-  const format = await getFormatter();
+  const t = useTranslations("Certificate");
+  const brand = useTranslations("Brand");
+  const format = useFormatter();
 
   const qr = QRCode.create(verifyUrl, { errorCorrectionLevel: "M" });
   const size = qr.modules.size;

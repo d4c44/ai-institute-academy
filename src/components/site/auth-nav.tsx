@@ -3,11 +3,14 @@ import { UserMenu } from "@/components/auth/user-menu";
 import { buttonVariants } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { getCurrentUser } from "@/lib/api/auth";
+import { STATIC } from "@/lib/static";
 import { cn } from "@/lib/utils";
+import { StaticAuthNav } from "./static-auth";
 
 // Reads the session cookie, so it renders at request time inside a <Suspense> boundary.
 // If the API is down the visitor simply sees the signed-out links.
 export async function AuthNav() {
+  if (STATIC) return <StaticAuthNav />;
   const t = await getTranslations("Nav");
   const user = await getCurrentUser().catch(() => null);
 

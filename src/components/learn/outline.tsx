@@ -1,12 +1,12 @@
 import { CheckIcon, CircleIcon, FileTextIcon, LockIcon, PlayCircleIcon, TrophyIcon } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { type CourseProgress, type QuizState } from "@/lib/api/learning";
 import { cn } from "@/lib/utils";
 
 // Course contents with per-unit status. Locked modules are listed but not linked.
-export async function Outline({ course, currentId }: { course: CourseProgress; currentId?: string }) {
-  const t = await getTranslations("Learn");
+export function Outline({ course, currentId }: { course: CourseProgress; currentId?: string }) {
+  const t = useTranslations("Learn");
 
   return (
     <nav aria-label={t("outline")} className="flex flex-col gap-5">

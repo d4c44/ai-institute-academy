@@ -6,7 +6,7 @@ import { Fragment, useState } from "react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Link, useRouter } from "@/i18n/navigation";
 import { apiSend } from "@/lib/api/browser";
-import { certificatePdfUrl, type QuizDetail, type QuizResult, unitHref } from "@/lib/api/learning";
+import { certificatePdfUrl, type QuizDetail, type QuizResult, unitHref, verifyHref } from "@/lib/api/learning";
 import { cn } from "@/lib/utils";
 
 // Question text may use *emphasis*; nothing else is interpreted.
@@ -107,7 +107,7 @@ export function QuizRunner({ quiz }: { quiz: QuizDetail }) {
                 <DownloadIcon data-icon="inline-start" />
                 {t("downloadPdf")}
               </a>
-              <Link href={`/verify/${result.certificate.code}`} className={cn(buttonVariants())}>
+              <Link href={verifyHref(result.certificate.code)} className={cn(buttonVariants())}>
                 {t("viewCertificate")}
               </Link>
             </div>

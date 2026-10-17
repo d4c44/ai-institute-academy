@@ -30,6 +30,9 @@ export function LocaleSwitcher() {
   const [isPending, startTransition] = useTransition();
 
   function switchTo(next: Locale) {
+    try {
+      localStorage.setItem("ai-locale", next); // read by the static site's "/" redirect
+    } catch {}
     startTransition(() => router.replace(pathname, { locale: next }));
   }
 

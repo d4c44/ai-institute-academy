@@ -3,10 +3,13 @@ import { LogoutButton } from "@/components/auth/logout-button";
 import { buttonVariants } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { getCurrentUser } from "@/lib/api/auth";
+import { STATIC } from "@/lib/static";
 import { cn } from "@/lib/utils";
+import { StaticMobileAuth } from "./static-auth";
 
 // Account links inside the mobile menu sheet (server-rendered, passed to the client MobileNav).
 export async function MobileAuth() {
+  if (STATIC) return <StaticMobileAuth />;
   const t = await getTranslations("Nav");
   const user = await getCurrentUser().catch(() => null);
 

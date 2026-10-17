@@ -9,10 +9,15 @@ import { routing, type Locale } from "@/i18n/routing";
 import { getMyEnrollments } from "@/lib/api/auth";
 import { ApiError } from "@/lib/api/client";
 import { getCourse } from "@/lib/api/catalog";
+import { atRequestTime } from "@/lib/runtime";
+import { courseParams, PLACEHOLDER } from "@/lib/static-params";
+import { STATIC } from "@/lib/static";
+import { StaticEnroll } from "@/components/site/static-auth";
 
 type Props = PageProps<"/[locale]/courses/[slug]">;
 
 async function loadCourse(slug: string, locale: string) {
+  if (slug === PLACEHOLDER) notFound();
   try {
     return await getCourse(slug, locale);
   } catch (error) {
@@ -21,8 +26,11 @@ async function loadCourse(slug: string, locale: string) {
   }
 }
 
+export const generateStaticParams = courseParams;
+
 export async function generateMetadata({ params }: Props) {
   const { slug, locale } = await params;
+  if (slug === PLACEHOLDER) return {};
   try {
     return { title: (await getCourse(slug, locale)).title };
   } catch {
@@ -43,6 +51,7 @@ function minutes(sec: number | null) {
 }
 
 async function CourseContent({ params }: Pick<Props, "params">) {
+  await atRequestTime(); // the normal build must not need the API
   const { slug, locale } = await params;
   const course = await loadCourse(slug, locale);
   const t = await getTranslations("Courses.detail");
@@ -202,6 +211,7 @@ async function CourseContent({ params }: Pick<Props, "params">) {
 }
 
 async function EnrollAction({ slug }: { slug: string }) {
+  if (STATIC) return <StaticEnroll slug={slug} />;
   const enrollments = await getMyEnrollments().catch(() => []);
   return <EnrollButton slug={slug} enrolled={enrollments.some((e) => e.slug === slug)} />;
 }

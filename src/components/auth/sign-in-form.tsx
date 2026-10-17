@@ -1,18 +1,21 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link, useRouter } from "@/i18n/navigation";
 import { apiSend } from "@/lib/api/browser";
+import { safeNextPath } from "@/lib/api/next-path";
 import { Field, inputClass } from "./field";
 import { PasswordInput } from "./password-input";
 
 const KNOWN_ERRORS = ["invalid_credentials", "rate_limited", "network"] as const;
 
-export function SignInForm({ next }: { next?: string }) {
+export function SignInForm() {
   const t = useTranslations("Auth");
+  const next = safeNextPath(useSearchParams().get("next"));
   const router = useRouter();
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");

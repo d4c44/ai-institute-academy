@@ -1,8 +1,10 @@
-import { connection } from "next/server";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 import { CertificateDocument } from "@/components/certificate/document";
 import { Skeleton } from "@/components/ui/skeleton";
+import { publicVerifyUrl } from "@/lib/api/learning";
+import { atRequestTime } from "@/lib/runtime";
+import { STATIC } from "@/lib/static";
 
 const SAMPLE_CODE = "AIKAU-26-7K3M-9QX2";
 const SAMPLE_DATE = new Date(Date.UTC(2026, 9, 14));
@@ -18,9 +20,12 @@ export function CertificatePreview() {
 }
 
 async function SampleCertificate() {
-  await connection(); // the QR encodes APP_URL, which is only known at runtime
+  // The QR encodes the site address: APP_URL, which is only known at runtime (the static build
+  // knows it when it is built, from NEXT_PUBLIC_SITE_URL).
+  await atRequestTime();
   const t = await getTranslations("Certificate");
-  const base = process.env.APP_URL ?? "http://localhost:3000";
+  const locale = await getLocale();
+  const base = STATIC ? (process.env.NEXT_PUBLIC_SITE_URL ?? "") : (process.env.APP_URL ?? "http://localhost:3000");
 
   return (
     <CertificateDocument
@@ -31,7 +36,7 @@ async function SampleCertificate() {
       score={92}
       issuedAt={SAMPLE_DATE}
       code={SAMPLE_CODE}
-      verifyUrl={`${base}/verify/${SAMPLE_CODE}`}
+      verifyUrl={publicVerifyUrl(base, locale, SAMPLE_CODE)}
     />
   );
 }
