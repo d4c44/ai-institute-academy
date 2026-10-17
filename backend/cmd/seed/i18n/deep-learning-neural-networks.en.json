@@ -1,0 +1,31 @@
+{
+  "title": "Neural Networks and Deep Learning",
+  "summary": "From the perceptron to transformers: training neural networks in PyTorch, regularisation and optimisation.",
+  "description": "A course for students who already know the basics of machine learning.",
+  "outcomes": [
+    "Train and debug neural networks in PyTorch",
+    "Understand how transformers are built"
+  ],
+  "prerequisites": [
+    "Machine learning fundamentals",
+    "Python and NumPy",
+    "Linear algebra"
+  ],
+  "modules": [
+    {
+      "title": "The perceptron and multilayer networks"
+    },
+    {
+      "title": "Backpropagation"
+    },
+    {
+      "title": "Convolutional networks (CNN)"
+    },
+    {
+      "title": "Recurrent networks and transformers"
+    },
+    {
+      "title": "Regularisation and optimisation"
+    }
+  ]
+}

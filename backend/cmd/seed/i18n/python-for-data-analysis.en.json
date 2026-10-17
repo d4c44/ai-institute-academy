@@ -1,0 +1,23 @@
+{
+  "title": "Python for Data Analysis",
+  "summary": "The basics of Python, NumPy and pandas: loading, cleaning and visualising data for future machine learning tasks.",
+  "description": "A practical course for anyone who wants to work confidently with data before learning machine learning.",
+  "outcomes": [
+    "Write simple programs in Python",
+    "Clean and analyse tabular data with pandas"
+  ],
+  "modules": [
+    {
+      "title": "Python basics"
+    },
+    {
+      "title": "NumPy: working with arrays"
+    },
+    {
+      "title": "pandas: tables and data cleaning"
+    },
+    {
+      "title": "Visualisation with matplotlib"
+    }
+  ]
+}

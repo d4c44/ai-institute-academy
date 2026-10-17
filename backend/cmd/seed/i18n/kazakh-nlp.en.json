@@ -1,0 +1,27 @@
+{
+  "title": "Natural Language Processing for Kazakh",
+  "summary": "Tokenising Kazakh texts, morphological analysis and using transformer models.",
+  "description": "We learn NLP methods in practice, taking the features of the Kazakh language into account.",
+  "outcomes": [
+    "Preprocess text in Kazakh",
+    "Train a text classification model"
+  ],
+  "prerequisites": [
+    "Python",
+    "Machine learning fundamentals"
+  ],
+  "modules": [
+    {
+      "title": "Kazakh morphology and tokenisation"
+    },
+    {
+      "title": "Word embeddings"
+    },
+    {
+      "title": "Transformer models"
+    },
+    {
+      "title": "Text classification and named entity recognition"
+    }
+  ]
+}

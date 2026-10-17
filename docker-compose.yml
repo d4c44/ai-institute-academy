@@ -1,0 +1,56 @@
+# Full stack on one machine: PostgreSQL + migrations + Go API + Next.js.
+#   docker compose up -d --build
+# Set POSTGRES_PASSWORD (in a .env next to this file) before using this anywhere real.
+# To use an existing PostgreSQL server instead, drop the `db` service and point DATABASE_URL at it.
+
+services:
+  db:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-ai_institute}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ai_institute}
+      POSTGRES_DB: ${POSTGRES_DB:-ai_institute}
+    volumes:
+      # Postgres 18 images keep data under /var/lib/postgresql/<version>/, so mount the parent.
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  migrate:
+    build: ./backend
+    command: ["migrate"]
+    environment: &api-env
+      DATABASE_URL: postgres://${POSTGRES_USER:-ai_institute}:${POSTGRES_PASSWORD:-ai_institute}@db:5432/${POSTGRES_DB:-ai_institute}
+      APP_ENV: production
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: "no"
+
+  api:
+    build: ./backend
+    restart: unless-stopped
+    environment:
+      <<: *api-env
+      ADDR: ":8080"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  web:
+    build: .
+    restart: unless-stopped
+    environment:
+      API_URL: http://api:8080
+      APP_URL: ${APP_URL:-http://localhost:3000}
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+
+volumes:
+  pgdata:

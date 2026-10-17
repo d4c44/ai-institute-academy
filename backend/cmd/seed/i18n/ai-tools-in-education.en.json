@@ -1,0 +1,219 @@
+{
+  "title": "Artificial Intelligence Tools in Education",
+  "summary": "A professional development course for instructors: using artificial intelligence in lesson planning, preparing teaching materials and assessment, and upholding academic integrity.",
+  "description": "This course is the online part of the professional development programme “Artificial Intelligence Tools in Education” for university teaching staff. The programme is run by the Centre for Professional Development and Continuing Education of Korkyt Ata Kyzylorda University.\n\nFive modules: core concepts, writing effective prompts, using artificial intelligence in the teaching process, reliability and ethics, and a practical project. Each module ends with a short quiz and the course ends with a final exam. To receive a certificate you need to complete all lessons and pass all quizzes.",
+  "outcomes": [
+    "Explain the capabilities and limitations of large language models",
+    "Write an effective prompt using role, task, context and format",
+    "Prepare a lesson plan, assignments and an assessment rubric with the help of artificial intelligence",
+    "Verify AI answers and follow academic integrity and data protection requirements"
+  ],
+  "prerequisites": ["Experience teaching at a university", "Ability to use a computer and the internet"],
+  "modules": [
+    {
+      "title": "Core concepts of artificial intelligence",
+      "description": "A basic understanding of artificial intelligence and large language models.",
+      "lessons": [
+        {
+          "title": "How large language models work",
+          "content": "A **large language model (LLM)** is an artificial intelligence model trained on a very large amount of text. It does not “understand” text the way a person does: it predicts how a given text continues, choosing the most probable words.\n\nExamples of popular tools: ChatGPT, Gemini, Claude, Copilot.\n\n## What it can do\n\n- write, shorten and translate texts;\n- answer questions and suggest ideas;\n- draw up tables, tests and plans;\n- explain formulas and program code.\n\n## Limitations\n\n- An answer may sound convincing but be **wrong**. This is called a *hallucination*.\n- The model is limited by the data it was trained on and may not know the latest news.\n- It answers the same question a little differently each time.\n- Responsibility for the result stays with the person.\n\n## The main rule\n\nArtificial intelligence is an assistant; the final decision is made by the instructor."
+        }
+      ],
+      "quiz": {
+        "title": "Module 1 quiz",
+        "questions": [
+          {
+            "prompt": "How does a large language model produce text?",
+            "explanation": "The model predicts how a given text continues. It does not look up a ready-made answer and does not understand meaning like a person.",
+            "options": ["It predicts how the text continues, choosing the most probable words", "It finds a ready answer on the internet and copies it", "It understands the meaning of each word like a human and writes consciously"]
+          },
+          {
+            "prompt": "What is a hallucination?",
+            "explanation": "A hallucination is when the model gives an answer that sounds confident but is wrong or invented.",
+            "options": ["When the model gives an answer that sounds confident but is wrong or invented", "When the model refuses to answer", "A dropped internet connection"]
+          },
+          {
+            "prompt": "An answer from artificial intelligence can be used in class without checking it.",
+            "explanation": "An answer must always be checked: the model can make mistakes.",
+            "options": ["True", "False"]
+          }
+        ]
+      }
+    },
+    {
+      "title": "Writing effective prompts",
+      "description": "The structure of a prompt that gives good results and ways to improve it.",
+      "lessons": [
+        {
+          "title": "The structure of a prompt",
+          "content": "The quality of a prompt determines the quality of the answer. A good prompt has four parts:\n\n1. **Role:** who the model should be when it answers. For example: “You are a curriculum specialist in a university computer science department.”\n2. **Task:** exactly what to do. For example: “Draw up a 90-minute lesson plan.”\n3. **Context:** the audience, level and constraints. For example: “First-year students learning SQL for the first time.”\n4. **Format:** the form of the answer. For example: “as a table: time, activity, expected outcome.”\n\n## A poor and a good prompt\n\n- Poor: “Write a lesson plan.”\n- Good: “You are a computer science curriculum specialist. Draw up a 90-minute lesson plan for the course ‘Databases’ for first-year students. The students are meeting SQL for the first time. Give the answer as a table: time, activity, expected outcome.”\n\nA precise prompt gives a precise answer."
+        },
+        {
+          "title": "Refining and giving examples",
+          "content": "The first answer is rarely perfect. Working with artificial intelligence is a dialogue: you assess the result and make corrections.\n\n## Techniques\n\n- **Refine:** “Make it shorter”, “Add three examples”, “Make it simpler”.\n- **Give an example:** show one or two samples of the answer you want and the model will repeat that style.\n- **Work step by step:** split a complex task: first the outline, then the text of each section.\n- **Set limits:** “Rely only on the given text”, “If you don't know, say so”.\n\n## Please note\n\nDo not put students' personal data or confidential documents into a prompt."
+        }
+      ],
+      "quiz": {
+        "title": "Module 2 quiz",
+        "questions": [
+          {
+            "prompt": "What are the four parts of a good prompt?",
+            "explanation": "A good prompt states the role, task, context and format.",
+            "options": ["Role, task, context, format", "Greeting, question, thanks, goodbye", "Topic, introduction, main part, conclusion"]
+          },
+          {
+            "prompt": "What does showing the model a sample of the answer you want achieve?",
+            "explanation": "Having seen a sample, the model tries to repeat its style and structure.",
+            "options": ["The model tries to repeat that style and structure", "The answer will necessarily be short", "The model downloads new data from the internet"]
+          },
+          {
+            "prompt": "What is the right thing to do if the first answer is not satisfactory?",
+            "explanation": "Working with artificial intelligence is a dialogue: you refine, make corrections and ask again.",
+            "options": ["Refine the prompt, make corrections and ask again", "Give up immediately", "Use the answer unchanged"]
+          },
+          {
+            "prompt": "Select the data that must not be sent to an artificial intelligence service.",
+            "explanation": "Students' personal data and confidential documents must not be sent. A general question on an open topic is safe.",
+            "options": ["Students' personal data", "Confidential internal documents", "A general question on an open topic"]
+          }
+        ]
+      }
+    },
+    {
+      "title": "Using artificial intelligence in the teaching process",
+      "description": "Planning lessons, preparing assignments and assessment criteria, giving feedback to students.",
+      "lessons": [
+        {
+          "title": "Preparing a lesson plan and teaching materials",
+          "content": "Artificial intelligence shortens the time needed to prepare for a lesson, but the instructor is responsible for the quality of the content.\n\n## Where it helps\n\n- Drafting a course syllabus and splitting it into modules.\n- Aligning the lesson plan with the **learning outcomes**.\n- Explaining a difficult topic at different levels: in plain language, with an example, with an analogy.\n- Sketching the structure of slides and a draft of lecture notes.\n\n## How to work\n\n1. Formulate the learning outcome yourself.\n2. Ask artificial intelligence for a draft plan.\n3. Check the content against the requirements of your subject and its sources.\n4. Remove what is unnecessary and add your own examples.\n\nA ready draft is a starting point, not the final version."
+        },
+        {
+          "title": "Assignments, tests and the assessment rubric",
+          "content": "Artificial intelligence quickly produces sets of assignments, and the instructor checks that they are correct.\n\n## Creating assignments\n\nIn the prompt state: the topic, the students' level, the number of questions, the question type (single answer, multiple answer, open) and the difficulty level.\n\n## The rubric\n\nA **rubric** is a table of criteria for assessing work. You can ask artificial intelligence for 4–5 criteria and a description of each level: for example “content”, “structure”, “argumentation”, “language”.\n\n## Checklist\n\n- Does each question have a correct answer, and is it the only one?\n- Does the question match the learning outcome?\n- Is the language clear to the student?\n- Are the examples specific and correct?"
+        },
+        {
+          "title": "Individual feedback and the learning path",
+          "content": "Artificial intelligence can help give **first-pass feedback** on a student's work: it points out gaps in structure and language errors and asks clarifying questions.\n\n## Ways to use it\n\n- A student uploads their essay and asks: “Where is my argument weakest?”\n- The instructor prepares general recommendations on frequently repeated mistakes.\n- Adapting learning material to the student's level: a simpler explanation or a harder assignment.\n\n## A limit\n\nThe final grade and the academic decision always stay with the instructor. A grade from artificial intelligence must not be used as an official grade."
+        }
+      ],
+      "quiz": {
+        "title": "Module 3 quiz",
+        "questions": [
+          {
+            "prompt": "How should you work with a lesson plan created by artificial intelligence?",
+            "explanation": "A draft is only a starting point: check it against the learning outcomes and sources and add your own content.",
+            "options": ["Check it against the learning outcomes and sources and add your own content", "Use it unchanged", "Keep only the slides"]
+          },
+          {
+            "prompt": "What is a rubric?",
+            "explanation": "A rubric is a table of criteria and levels for assessing work.",
+            "options": ["A table of criteria and levels for assessing work", "A class timetable", "A list of students"]
+          },
+          {
+            "prompt": "The final grade for a student's work is given by artificial intelligence.",
+            "explanation": "The final grade and the academic decision always stay with the instructor.",
+            "options": ["True", "False"]
+          }
+        ]
+      }
+    },
+    {
+      "title": "Reliability, academic integrity and ethics",
+      "description": "Checking AI answers, academic integrity and data protection.",
+      "lessons": [
+        {
+          "title": "Checking AI answers",
+          "content": "Answers from artificial intelligence sound convincing but may be wrong. This is especially common with facts, quotations, sources and numbers.\n\n## What to check\n\n- **Facts and numbers:** compare with a reliable source.\n- **Quotations and references:** the model may invent an article and an author that do not exist, so find every source yourself.\n- **Laws and regulations:** check them against the official document.\n- **Calculations and code:** run and test them yourself.\n\n## Three steps of checking\n\n1. Ask for the source.\n2. Open the source yourself and see that it supports the claim.\n3. Compare the fact with a second independent source."
+        },
+        {
+          "title": "Academic integrity",
+          "content": "The arrival of artificial intelligence does not change the rules of academic integrity: the author of a piece of work, and the person responsible for it, remains the student or the instructor.\n\n## The principle of openness\n\n- **Announce the requirements in advance** for using artificial intelligence: in which assignments it is allowed and in which it is forbidden.\n- Introduce a requirement to **disclose** it when artificial intelligence helped: which tool and for what purpose.\n- Design assignments so that **artificial intelligence cannot easily complete them**: personal experience, local material, an oral defence.\n\n## A warning\n\nPrograms that detect AI-written text can be wrong, so a student must not be accused on the strength of their result alone."
+        },
+        {
+          "title": "Personal data and copyright",
+          "content": "## Personal data\n\nDo not send students' names, grades and documents, or confidential internal materials, to artificial intelligence services: they may be processed on external servers. If necessary, **anonymise** the data.\n\n## Copyright\n\n- Text created by artificial intelligence may repeat material from other authors.\n- Before including it in a publication or a teaching and methodological work, check the text and rework it in your own words.\n- Read the terms of use of the tool you use.\n\n## Bias\n\nThe model can repeat bias present in its training data. Look at examples and images critically."
+        }
+      ],
+      "quiz": {
+        "title": "Module 4 quiz",
+        "questions": [
+          {
+            "prompt": "How should you check a quotation and reference given by artificial intelligence?",
+            "explanation": "Asking the model itself again does not count as checking: you must open the source yourself.",
+            "options": ["Open the source yourself, confirm that it really exists and compare the content", "Ask the model itself: “Is this true?”", "Do not check, because the model never makes mistakes"]
+          },
+          {
+            "prompt": "Which approach is right from the point of view of academic integrity?",
+            "explanation": "Announcing the rules in advance and requiring disclosure of AI help ensures openness.",
+            "options": ["Announce the rules of use in advance and require disclosure of help", "Use artificial intelligence in complete secrecy", "Accuse a student relying only on a detection program"]
+          },
+          {
+            "prompt": "Students' names and grades can be freely sent to any artificial intelligence service.",
+            "explanation": "Personal data may be processed on external servers, so it should not be sent or should be anonymised.",
+            "options": ["True", "False"]
+          },
+          {
+            "prompt": "Which of these are steps in checking an AI answer?",
+            "explanation": "Opening the source yourself and comparing with a second independent source are checks. A nicely written answer does not prove it is correct.",
+            "options": ["Ask for the source and open it yourself", "Compare the fact with a second independent source", "Consider the answer correct if it is nicely written"]
+          }
+        ]
+      }
+    },
+    {
+      "title": "Practical project",
+      "description": "Drawing up a plan for using artificial intelligence in your own subject.",
+      "lessons": [
+        {
+          "title": "A plan for using artificial intelligence in your subject",
+          "content": "The last assignment of the course is to draw up a plan for using artificial intelligence in your own subject.\n\n## The task\n\n1. Choose **one module** of your subject.\n2. Write down its learning outcomes.\n3. With the help of artificial intelligence prepare a draft lesson plan, 5 assignments and one rubric.\n4. Check and correct the result: what mistakes did you find?\n5. Write a **usage rule** for students (where it is allowed, where it is forbidden, how to disclose it) in 3–4 sentences.\n\n## The outcome\n\nShow your project to the course instructor. Then mark this lesson as complete and go on to the final exam."
+        }
+      ]
+    }
+  ],
+  "finalExam": {
+    "title": "Final exam",
+    "questions": [
+      {
+        "prompt": "What is the main characteristic of a large language model?",
+        "explanation": "The model predicts how a text continues by probability, so it can make mistakes.",
+        "options": ["It predicts how a text continues by probability", "It understands meaning like a human", "It always gives the correct answer"]
+      },
+      {
+        "prompt": "What is “context” in a prompt?",
+        "explanation": "Context is information about the audience, level and constraints.",
+        "options": ["Information about the audience, level and constraints", "The name of the model", "The length of the answer"]
+      },
+      {
+        "prompt": "What is the effective way to give a model a complex task?",
+        "explanation": "A complex task is best split into parts and given step by step.",
+        "options": ["Split it into parts and give it step by step", "Combine everything into one long sentence", "Just write the single word “Write”"]
+      },
+      {
+        "prompt": "What is a rubric for?",
+        "explanation": "A rubric states the assessment criteria clearly in advance.",
+        "options": ["To state the criteria for assessing work clearly in advance", "To keep a list of students", "To draw up a class timetable"]
+      },
+      {
+        "prompt": "Feedback from artificial intelligence is sufficient as an official grade.",
+        "explanation": "The final grade and the academic decision stay with the instructor.",
+        "options": ["True", "False"]
+      },
+      {
+        "prompt": "Which approach to personal data is right?",
+        "explanation": "Anonymising data and not sending what is unnecessary protects personal information.",
+        "options": ["Anonymise the data and do not send what is unnecessary", "Put all the data into the prompt", "Upload confidential documents in full"]
+      },
+      {
+        "prompt": "Select the actions that support academic integrity.",
+        "explanation": "Announcing the rules in advance, requiring disclosure of help and basing assignments on personal experience support integrity. A student must not be accused relying only on a detection program.",
+        "options": ["Announce the usage rule in advance", "Require disclosure of AI help", "Base assignments on personal experience and an oral defence", "Accuse a student relying only on a detection program"]
+      },
+      {
+        "prompt": "Where is the risk of hallucination highest?",
+        "explanation": "Errors are especially common in quotations, references and specific numbers.",
+        "options": ["In quotations, references and specific numbers", "In greeting words", "In text formatting"]
+      }
+    ]
+  }
+}

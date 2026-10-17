@@ -1,0 +1,159 @@
+{
+  "title": "Fundamentals of Artificial Intelligence",
+  "summary": "What AI is, how machines learn from data and where it is used. A short course with no programming, after which you receive a certificate.",
+  "description": "An introductory course for anyone who wants to understand what stands behind the words “artificial intelligence” and “machine learning”.\n\nThree modules: history and core concepts, how models are trained, and applications and ethics. Each module ends with a short quiz and the course ends with a final exam. To receive a certificate you need to complete all lessons and pass all quizzes. No programming experience is required.",
+  "outcomes": [
+    "Explain what artificial intelligence is and tell narrow AI from general AI",
+    "Describe how a model learns from data and name the three main types of learning",
+    "Recognise overfitting and explain why a model must be checked on new data",
+    "Assess the ethical risks of using AI: bias, privacy, accountability"
+  ],
+  "modules": [
+    {
+      "title": "What is artificial intelligence",
+      "description": "A definition, a short history and the kinds of AI.",
+      "lessons": [
+        {
+          "title": "Definition and a short history",
+          "content": "**Artificial intelligence (AI)** is the field of computer science concerned with building programs that can solve tasks that normally require human intelligence: recognising speech and images, translating texts, making decisions.\n\n## Key milestones\n\n- **1950** — Alan Turing publishes “Computing Machinery and Intelligence” and proposes the test that bears his name.\n- **1956** — at the Dartmouth workshop John McCarthy introduces the term “artificial intelligence”.\n- **1997** — the chess program Deep Blue defeats world champion Garry Kasparov.\n- **2016** — AlphaGo defeats Lee Sedol at the game of Go.\n- **2020s** — large language models learn to hold conversations and write texts.\n\nProgress came in waves: periods of great expectations were followed by “AI winters”, when funding was cut because results did not live up to the promises."
+        },
+        {
+          "title": "Narrow and general AI",
+          "content": "All AI systems that exist today are **narrow AI**: they solve one specific task well and cannot transfer their skills to others.\n\n## Kinds of AI\n\n- **Narrow AI (ANI)** — a chess program, a recommendation system, a voice assistant. These systems do not understand the world; they find patterns in data.\n- **General AI (AGI)** — a hypothetical system able to solve any intellectual task at a human level. It does not exist yet.\n- **Superintelligence** — an even more hypothetical system that surpasses humans in every area.\n\nWhen the news says “AI passed an exam” or “AI painted a picture”, it means narrow AI: very powerful, but specialised."
+        }
+      ],
+      "quiz": {
+        "title": "Module 1 quiz",
+        "questions": [
+          {
+            "prompt": "In which year was the term “artificial intelligence” introduced at the Dartmouth workshop?",
+            "explanation": "John McCarthy proposed the term in 1956 while preparing the Dartmouth workshop.",
+            "options": ["1956", "1926", "1989"]
+          },
+          {
+            "prompt": "Which kind do all AI systems that exist today belong to?",
+            "explanation": "General AI (AGI) does not exist yet; all current systems are specialised.",
+            "options": ["General AI (AGI)", "Narrow AI (ANI)", "Superintelligence"]
+          },
+          {
+            "prompt": "The chess program Deep Blue defeated world champion Garry Kasparov.",
+            "explanation": "This happened in 1997.",
+            "options": ["True", "False"]
+          }
+        ]
+      }
+    },
+    {
+      "title": "How machines learn",
+      "description": "Data, features, models and the three types of learning.",
+      "lessons": [
+        {
+          "title": "Data, features and models",
+          "content": "In classical programming a person writes the rules and the computer follows them. In **machine learning** it is the other way round: a person provides examples and the program finds the rules itself.\n\n## Core concepts\n\n- **Data** — the examples the system learns from (emails, images, tables).\n- **Feature** — a measurable characteristic of an example: the number of links in an email, the area of an apartment, a client's age.\n- **Label** — the correct answer we want to predict: “spam” or “not spam”, the price of an apartment.\n- **Model** — a mathematical function that produces a prediction from features.\n- **Training** — tuning the model's parameters so that its predictions match the labels on the training data.\n\nThe quality of a model almost always comes down to the quality of the data: errors and skews in the data pass into the model."
+        },
+        {
+          "title": "Three types of learning",
+          "content": "## Supervised learning\n\nThe data contains correct answers (labels). The model learns to predict them. Examples: spam detection, price forecasting, handwritten digit recognition.\n\n## Unsupervised learning\n\nThere are no labels; the model looks for structure on its own. Example: splitting customers into groups with similar behaviour (clustering).\n\n## Reinforcement learning\n\nAn agent acts in an environment and receives a reward or a penalty. This is how game-playing programs and robots learn: they try, evaluate the result and improve their strategy."
+        },
+        {
+          "title": "Overfitting and model validation",
+          "content": "A model that has memorised the training examples perfectly may perform poorly on new data. This is called **overfitting**.\n\nImagine a student who has learned the exam answers by heart: they answer familiar questions perfectly but get lost at the slightest change of wording.\n\n## How to protect against it\n\n1. Split the data into **training** and **test** sets and measure quality only on the test set.\n2. Use more varied data.\n3. Choose a simpler model if a complex one overfits.\n\nAn honest evaluation is always made on data the model did not see during training."
+        }
+      ],
+      "quiz": {
+        "title": "Module 2 quiz",
+        "questions": [
+          {
+            "prompt": "What is the correct answer that a model learns to predict called?",
+            "explanation": "A label is the target value for each example in the training data.",
+            "options": ["Feature", "Label", "Parameter"]
+          },
+          {
+            "prompt": "Splitting customers into groups without predefined categories is an example of…",
+            "explanation": "There are no labels and the model finds the structure itself: this is unsupervised learning (clustering).",
+            "options": ["Supervised learning", "Unsupervised learning", "Reinforcement learning"]
+          },
+          {
+            "prompt": "What is overfitting?",
+            "explanation": "The model memorises the training examples instead of finding general patterns.",
+            "options": ["The model performs poorly on both training and new data", "The model performs well on training data but poorly on new data", "The model was trained for too little time"]
+          },
+          {
+            "prompt": "Select all valid ways to fight overfitting.",
+            "explanation": "Testing on a held-out set, more varied data and a simpler model all help. Evaluating on training data does not reveal overfitting.",
+            "options": ["Evaluate quality on a test set", "Collect more varied data", "Evaluate quality on training data only"]
+          }
+        ]
+      }
+    },
+    {
+      "title": "AI in life and ethics",
+      "description": "Where AI is used and the questions of responsibility it raises.",
+      "lessons": [
+        {
+          "title": "Where AI is used",
+          "content": "AI systems are already built into everyday services:\n\n- **Medicine** — analysing scans and supporting the doctor in making a diagnosis.\n- **Transport** — navigation, traffic forecasts, driver-assistance systems.\n- **Education** — adaptive trainers, automatic checking of assignments.\n- **Agriculture** — analysing satellite images of fields, forecasting yields.\n- **Banking and retail** — detecting fraud, recommending products.\n- **Language** — machine translation, voice assistants, search.\n\nIn all these cases AI amplifies a person but does not replace responsibility for the decision."
+        },
+        {
+          "title": "Ethics, bias and accountability",
+          "content": "A model learns from data, so it repeats the skews in that data. If past hiring data favoured a particular group, the model may reproduce that bias.\n\n## Key questions\n\n- **Bias and fairness** — does the system work equally well for different groups of people?\n- **Privacy** — what personal data is collected and how is it protected?\n- **Explainability** — can we understand why the system made exactly this decision?\n- **Accountability** — who is responsible for a mistake: the developer, the service owner, the user?\n\nThe principle of responsible use is simple: important decisions about people must not be made without human oversight and a way to appeal."
+        }
+      ],
+      "quiz": {
+        "title": "Module 3 quiz",
+        "questions": [
+          {
+            "prompt": "Why can a model be biased?",
+            "explanation": "A model learns from data and reproduces the skews that are in it.",
+            "options": ["Because it learns from data that contains skews", "Because computers cannot calculate accurately", "Because the model invents the rules itself"]
+          },
+          {
+            "prompt": "What does explainability of an AI system mean?",
+            "explanation": "Explainability is the ability to understand the reasons for a particular decision of the system.",
+            "options": ["The system works fast", "We can understand why the system made exactly this decision", "The system has an understandable interface"]
+          },
+          {
+            "prompt": "Important decisions about people should be made without human involvement if the model is accurate.",
+            "explanation": "Even an accurate model makes mistakes. Important decisions require human oversight and a way to appeal.",
+            "options": ["True", "False"]
+          }
+        ]
+      }
+    }
+  ],
+  "finalExam": {
+    "title": "Final exam",
+    "questions": [
+      {
+        "prompt": "Who proposed a test for judging whether a machine has intelligence?",
+        "explanation": "Alan Turing described this test in his 1950 paper.",
+        "options": ["Alan Turing", "John McCarthy", "Garry Kasparov"]
+      },
+      {
+        "prompt": "Which AI system exists today?",
+        "explanation": "All current systems are narrow AI. General AI and superintelligence are still hypothetical.",
+        "options": ["General AI that solves any task", "Narrow AI that solves specific tasks", "Superintelligence"]
+      },
+      {
+        "prompt": "A feature is…",
+        "explanation": "A feature is a measurable characteristic of an example from which the model makes its prediction.",
+        "options": ["The correct answer for an example", "A measurable characteristic of an example", "The result of testing a model"]
+      },
+      {
+        "prompt": "In which tasks is reinforcement learning used?",
+        "explanation": "An agent gets a reward or a penalty for its actions: this is how game-playing programs and robots learn.",
+        "options": ["When there are labelled examples with answers", "When an agent receives a reward or a penalty for its actions", "When data needs to be split into groups"]
+      },
+      {
+        "prompt": "To fairly evaluate a model's quality you need to use…",
+        "explanation": "Evaluating on data the model has not seen shows how it will work in reality.",
+        "options": ["Only training data", "Data the model did not see during training", "Any data, it does not matter"]
+      },
+      {
+        "prompt": "Select all questions that relate to the ethics of AI use.",
+        "explanation": "Bias, privacy and accountability are key ethical questions. The speed of an interface is not an ethical matter.",
+        "options": ["Bias and fairness", "Data privacy", "The colour scheme of the interface", "Responsibility for the system's mistakes"]
+      }
+    ]
+  }
+}

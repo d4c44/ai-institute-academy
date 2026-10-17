@@ -1,0 +1,358 @@
+{
+  "Metadata": {
+    "title": "AI Institute Academy — 코르키트 아타 크질오르다 대학교",
+    "shortTitle": "AI Institute Academy",
+    "description": "코르키트 아타 크질오르다 대학교 AI Institute Academy의 인공지능 온라인 강좌와 진위 확인이 가능한 수료증."
+  },
+  "Brand": {
+    "name": "AI Institute Academy",
+    "university": "코르키트 아타 크질오르다 대학교"
+  },
+  "Nav": {
+    "home": "AI Institute Academy 홈",
+    "courses": "강좌",
+    "verify": "수료증 확인",
+    "signIn": "로그인",
+    "signUp": "무료 가입",
+    "openMenu": "메뉴 열기",
+    "searchLabel": "강좌 검색",
+    "searchPlaceholder": "무엇을 배우고 싶으세요?",
+    "account": "내 계정",
+    "accountMenu": "계정 메뉴",
+    "logOut": "로그아웃"
+  },
+  "LocaleSwitcher": {
+    "label": "언어"
+  },
+  "Home": {
+    "unavailable": "이 섹션을 일시적으로 사용할 수 없습니다. 잠시 후 다시 시도해 주세요.",
+    "hero": {
+      "eyebrow": "코르키트 아타 크질오르다 대학교",
+      "title": "대학 교수진에게 인공지능을 배우세요",
+      "subtitle": "AI Institute Academy의 강좌를 카자흐어, 러시아어, 영어, 한국어로 제공합니다. 퀴즈와 최종 시험에 합격하면 누구나 온라인으로 확인할 수 있는 수료증을 받습니다.",
+      "browse": "강좌 둘러보기",
+      "verifyTitle": "수료증 확인",
+      "verifyBody": "수료증이 AI Institute Academy에서 발급된 것인지 확인하세요.",
+      "verifyLabel": "수료증 번호",
+      "verifyAction": "확인"
+    },
+    "stats": {
+      "courses": "{count, plural, other {강좌}}",
+      "tracks": "{count, plural, other {학습 트랙}}",
+      "languages": "{count, plural, other {강의 언어}}",
+      "learners": "{count, plural, other {학습자}}"
+    },
+    "tracks": {
+      "title": "트랙별로 찾아보기",
+      "subtitle": "관심 분야를 고르고 강좌별로 실력을 쌓아 가세요.",
+      "courseCount": "{count, plural, =0 {곧 공개} other {#개 강좌}}"
+    },
+    "popular": {
+      "title": "인기 강좌",
+      "subtitle": "지금 학습자들이 가장 많이 수강하는 강좌.",
+      "all": "전체 강좌",
+      "empty": "강좌가 공개되면 여기에 표시됩니다."
+    },
+    "how": {
+      "title": "수료증 발급 방식",
+      "subtitle": "모든 수료증은 이수한 학습 내용을 바탕으로 하며 온라인으로 확인할 수 있습니다.",
+      "enroll": {
+        "title": "수강 신청",
+        "body": "계정을 만들고 강좌에 등록하세요."
+      },
+      "learn": {
+        "title": "학습하고 퀴즈 통과",
+        "body": "영상과 텍스트 강의를 따라 학습하세요. 각 모듈은 다음 모듈을 여는 퀴즈로 끝납니다."
+      },
+      "certify": {
+        "title": "수료증 받기",
+        "body": "모든 강의를 마치고 최종 시험에 합격하면 고유 번호와 QR 코드가 담긴 PDF 수료증이 자동으로 발급됩니다."
+      }
+    },
+    "cta": {
+      "title": "오늘 학습을 시작하세요",
+      "body": "무료 계정을 만들고 첫 강좌에 등록하세요.",
+      "action": "무료 가입",
+      "browse": "강좌 둘러보기"
+    },
+    "certificate": {
+      "title": "진위를 확인할 수 있는 수료증",
+      "body": "모든 강의를 마치고 최종 시험에 합격하면 PDF 수료증이 자동으로 발급됩니다. 누구나 온라인으로 확인할 수 있습니다.",
+      "points": {
+        "name": "프로필에 등록한 성명",
+        "course": "강좌명과 총 학습 시간",
+        "date": "발급일",
+        "id": "고유 수료증 번호",
+        "qr": "확인 페이지로 연결되는 QR 코드"
+      }
+    }
+  },
+  "Course": {
+    "provider": "AI Institute Academy",
+    "hours": "{hours}시간",
+    "level": {
+      "BEGINNER": "초급",
+      "INTERMEDIATE": "중급",
+      "ADVANCED": "고급"
+    },
+    "language": {
+      "kk": "카자흐어",
+      "ru": "러시아어",
+      "en": "영어",
+      "ko": "한국어"
+    }
+  },
+  "Tracks": {
+    "ai-foundations": {
+      "name": "인공지능 기초",
+      "description": "인공지능의 핵심 개념, 역사, 윤리와 필요한 수학 및 Python."
+    },
+    "machine-learning": {
+      "name": "머신러닝",
+      "description": "지도 학습과 비지도 학습, 모델 평가, 특성 공학."
+    },
+    "deep-learning": {
+      "name": "딥러닝",
+      "description": "신경망, 역전파, CNN, RNN, 트랜스포머."
+    },
+    "computer-vision": {
+      "name": "컴퓨터 비전",
+      "description": "이미지 분류, 객체 탐지, 분할."
+    },
+    "nlp": {
+      "name": "자연어 처리",
+      "description": "텍스트 처리, 언어 모델, 카자흐어 NLP."
+    },
+    "ai-in-education": {
+      "name": "교육 분야의 인공지능",
+      "description": "수업, 평가, 학문적 정직성을 위한 인공지능 도구 활용."
+    }
+  },
+  "Footer": {
+    "tagline": "진위 확인이 가능한 수료증을 제공하는 인공지능 온라인 강좌.",
+    "learn": "학습",
+    "certificates": "수료증",
+    "copyright": "AI Institute Academy · 코르키트 아타 크질오르다 대학교"
+  },
+  "NotFound": {
+    "title": "페이지를 찾을 수 없습니다",
+    "body": "찾으시는 페이지가 없거나 이동되었습니다.",
+    "home": "홈으로 돌아가기"
+  },
+  "Auth": {
+    "passwordLabel": "비밀번호",
+    "showPassword": "비밀번호 표시",
+    "hidePassword": "비밀번호 숨기기",
+    "loginOrEmailLabel": "아이디 또는 이메일",
+    "fullNameLabel": "성명",
+    "fullNameHint": "수료증에 표시될 이름과 성을 입력하세요.",
+    "loginLabel": "아이디",
+    "loginHint": "3~32자: 영문자, 숫자, 점, 밑줄 또는 하이픈.",
+    "courseYearLabel": "학년",
+    "courseYearPlaceholder": "학년을 선택하세요",
+    "courseYearOption": "{year}학년",
+    "emailLabel": "이메일 (선택)",
+    "emailHint": "계정 관련 연락에만 사용됩니다.",
+    "rules": {
+      "length": "8자 이상",
+      "symbol": "특수문자 1개 이상, 예: ! ? # $ _ -"
+    },
+    "signIn": {
+      "title": "로그인",
+      "subtitle": "다시 오신 것을 환영합니다. 중단한 곳에서 이어서 학습하세요.",
+      "submit": "로그인",
+      "submitting": "로그인 중…",
+      "noAccount": "AI Institute Academy가 처음이신가요?",
+      "noAccountAction": "계정 만들기"
+    },
+    "signUp": {
+      "title": "계정 만들기",
+      "subtitle": "무료이며 1분이면 됩니다.",
+      "submit": "계정 만들기",
+      "submitting": "계정을 만드는 중…",
+      "haveAccount": "이미 계정이 있으신가요?",
+      "haveAccountAction": "로그인"
+    },
+    "panel": {
+      "headline": "하나의 계정으로 모든 강좌와 수료증을.",
+      "points": {
+        "one": "카자흐어, 러시아어, 영어, 한국어 강좌",
+        "two": "모듈별로 학습 진도 확인",
+        "three": "누구나 온라인으로 확인할 수 있는 수료증"
+      }
+    },
+    "errors": {
+      "invalid_credentials": "아이디 또는 비밀번호가 올바르지 않습니다.",
+      "rate_limited": "시도 횟수가 너무 많습니다. 몇 분 후에 다시 시도해 주세요.",
+      "internal": "서버에 문제가 발생했습니다. 다시 시도해 주세요.",
+      "network": "서버에 연결할 수 없습니다. 연결 상태를 확인하고 다시 시도해 주세요.",
+      "bad_request": "서버에 문제가 발생했습니다. 다시 시도해 주세요.",
+      "unsupported_media_type": "서버에 문제가 발생했습니다. 다시 시도해 주세요.",
+      "fullName_invalid": "이름과 성을 문자로만 입력하세요.",
+      "login_invalid": "영문자, 숫자, 점, 밑줄, 하이픈으로 3~32자를 사용하세요.",
+      "login_taken": "이미 사용 중인 아이디입니다.",
+      "email_invalid": "올바른 이메일 주소를 입력하세요.",
+      "email_taken": "이 이메일은 이미 다른 계정에서 사용 중입니다.",
+      "courseYear_required": "학년을 선택하세요.",
+      "courseYear_invalid": "1학년에서 6학년 중에서 선택하세요.",
+      "password_too_short": "비밀번호는 8자 이상이어야 합니다.",
+      "password_too_long": "비밀번호가 너무 깁니다 (최대 128자).",
+      "password_needs_symbol": "특수문자를 1개 이상 추가하세요. 예: ! ? # $ _ -"
+    },
+    "demo": {
+      "title": "데모 모드",
+      "credentials": "아이디: {login} · 비밀번호: {password}",
+      "fill": "데모 계정 입력"
+    }
+  },
+  "Account": {
+    "title": "내 계정",
+    "fullName": "성명",
+    "login": "아이디",
+    "courseYear": "학년",
+    "email": "이메일",
+    "memberSince": "가입일",
+    "notSet": "설정되지 않음",
+    "edit": "프로필 수정",
+    "save": "저장",
+    "cancel": "취소",
+    "saved": "프로필이 저장되었습니다.",
+    "myCourses": "내 강좌",
+    "noCourses": "아직 등록한 강좌가 없습니다.",
+    "browse": "강좌 둘러보기",
+    "completed": "수료 완료",
+    "progress": "{percent}% 완료",
+    "lessonsDone": "{total}개 강의 중 {done}개",
+    "progressLabel": "{title} 진도",
+    "certificates": "내 수료증",
+    "noCertificates": "강좌를 마치면 수료증이 여기에 표시됩니다.",
+    "downloadPdf": "PDF 다운로드",
+    "verifyPage": "확인 페이지",
+    "revoked": "취소됨"
+  },
+  "Courses": {
+    "title": "강좌",
+    "subtitle": "AI Institute Academy의 강좌. 트랙, 난이도, 언어로 필터링하세요.",
+    "searchLabel": "검색",
+    "searchPlaceholder": "강좌명 또는 주제",
+    "track": "트랙",
+    "level": "난이도",
+    "language": "언어",
+    "all": "전체",
+    "apply": "적용",
+    "reset": "초기화",
+    "results": "{count, plural, =0 {강좌를 찾을 수 없습니다} other {#개 강좌}}",
+    "empty": "조건에 맞는 강좌가 없습니다. 필터를 해제해 보세요.",
+    "unavailable": "강좌 목록을 일시적으로 사용할 수 없습니다. 잠시 후 다시 시도해 주세요.",
+    "detail": {
+      "about": "강좌 소개",
+      "outcomes": "배우는 내용",
+      "syllabus": "강의 계획",
+      "prerequisites": "선수 지식",
+      "instructors": "강사",
+      "enroll": "무료로 수강 신청",
+      "enrolled": "수강 중입니다",
+      "goToAccount": "내 강좌로 이동",
+      "enrollError": "수강 신청에 실패했습니다. 다시 시도해 주세요.",
+      "modulesAndLessons": "{modules, plural, other {#개 모듈}} · {lessons, plural, other {#개 강의}}",
+      "lessonsCount": "{count, plural, other {#개 강의}}",
+      "minutes": "{count}분",
+      "moduleQuiz": "모듈 퀴즈",
+      "finalExam": "최종 시험",
+      "goToCourse": "강좌로 이동"
+    }
+  },
+  "Certificate": {
+    "ariaLabel": "수료증 샘플",
+    "sample": "샘플",
+    "heading": "수료증",
+    "certify": "아래 수료자가",
+    "name": "Nurlan Kulmurzaev",
+    "completed": "다음 과정을 성공적으로 이수하였음을 증명합니다",
+    "course": "머신러닝 기초",
+    "hours": "{hours}시간",
+    "score": "최종 시험: {score}%",
+    "dateLabel": "발급일",
+    "idLabel": "수료증 번호",
+    "director": "AI Institute 소장",
+    "scan": "QR 코드로 진위 확인",
+    "qrLabel": "수료증 확인 페이지로 연결되는 QR 코드",
+    "signature": "N. Kulmurzaev",
+    "revoked": "취소됨"
+  },
+  "Learn": {
+    "outline": "강좌 목차",
+    "contents": "강좌 목차",
+    "courseInfo": "강좌 소개",
+    "backToCourse": "강좌 개요",
+    "start": "강좌 시작",
+    "continue": "계속하기",
+    "progress": "{percent}% 완료",
+    "progressLabel": "강좌 진도",
+    "unitsDone": "{total}단계 중 {done}단계 완료",
+    "locked": "잠김: 먼저 이전 모듈을 마치세요",
+    "moduleQuiz": "모듈 퀴즈",
+    "finalExam": "최종 시험",
+    "minutes": "{count}분",
+    "next": "다음",
+    "markCompleteContinue": "완료로 표시하고 계속하기",
+    "markCompleteFinish": "완료로 표시",
+    "downloadPdf": "PDF 다운로드",
+    "viewCertificate": "수료증 보기",
+    "certificateReady": "수료증이 준비되었습니다",
+    "certificateRevoked": "이 수료증은 더 이상 유효하지 않습니다",
+    "errors": {
+      "generic": "문제가 발생했습니다. 다시 시도해 주세요."
+    },
+    "quiz": {
+      "passMark": "합격 기준: {score}%",
+      "attempts": "{max}회 중 {used}번째 시도",
+      "bestScore": "최고 점수: {score}%",
+      "selectOne": "하나를 선택하세요",
+      "selectMany": "해당하는 것을 모두 선택하세요",
+      "answerAll": "모든 문항에 답해야 제출할 수 있습니다.",
+      "submit": "답안 제출",
+      "submitting": "채점 중…",
+      "passed": "합격했습니다",
+      "notPassed": "아직 합격하지 못했습니다",
+      "score": "내 점수: {score}%",
+      "correctCount": "{total}문항 중 {correct}문항 정답",
+      "correct": "정답",
+      "incorrect": "오답",
+      "retry": "다시 시도",
+      "continue": "계속하기",
+      "backToCourse": "강좌 개요",
+      "noAttempts": "이 시험의 남은 응시 횟수가 없습니다.",
+      "certificateIssued": "수료증이 발급되었습니다",
+      "downloadPdf": "PDF 다운로드",
+      "viewCertificate": "수료증 보기",
+      "errors": {
+        "generic": "답안을 제출하지 못했습니다. 다시 시도해 주세요.",
+        "noAttempts": "이 시험의 남은 응시 횟수가 없습니다."
+      }
+    }
+  },
+  "Verify": {
+    "title": "수료증 확인",
+    "subtitle": "수료증에 인쇄된 번호를 입력하거나 QR 코드를 스캔하세요.",
+    "valid": "유효한 수료증",
+    "validBody": "이 수료증은 AI Institute Academy에서 발급되었습니다.",
+    "revoked": "취소된 수료증",
+    "superseded": "대체된 수료증",
+    "invalidBody": "이 수료증은 더 이상 유효하지 않습니다.",
+    "revokedOn": "{date}에 취소됨",
+    "notFoundTitle": "수료증을 찾을 수 없습니다",
+    "notFoundBody": "번호를 확인하고 다시 시도하세요. 번호 형식은 AIKAU-26-ABCD-EFGH와 같습니다.",
+    "holder": "수료자",
+    "course": "강좌",
+    "issued": "발급일",
+    "id": "수료증 번호",
+    "hours": "강좌 시간",
+    "hoursValue": "{hours}시간",
+    "score": "최종 시험",
+    "download": "PDF 다운로드"
+  },
+  "Demo": {
+    "banner": "데모 모드: 이 사이트에는 서버가 없습니다. 데이터는 메모리에 저장되며 재시작하면 초기화됩니다. {login} / {password}(으)로 로그인하세요."
+  }
+}

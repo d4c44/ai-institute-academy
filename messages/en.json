@@ -1,0 +1,358 @@
+{
+  "Metadata": {
+    "title": "AI Institute Academy — Korkyt Ata Kyzylorda University",
+    "shortTitle": "AI Institute Academy",
+    "description": "Online courses in artificial intelligence with verifiable certificates from the AI Institute Academy at Korkyt Ata Kyzylorda University."
+  },
+  "Brand": {
+    "name": "AI Institute Academy",
+    "university": "Korkyt Ata Kyzylorda University"
+  },
+  "Nav": {
+    "home": "AI Institute Academy home",
+    "courses": "Courses",
+    "verify": "Verify certificate",
+    "signIn": "Log in",
+    "signUp": "Join for free",
+    "openMenu": "Open menu",
+    "searchLabel": "Search courses",
+    "searchPlaceholder": "What do you want to learn?",
+    "account": "My account",
+    "accountMenu": "Account menu",
+    "logOut": "Log out"
+  },
+  "LocaleSwitcher": {
+    "label": "Language"
+  },
+  "Home": {
+    "unavailable": "This section is temporarily unavailable. Please try again in a moment.",
+    "hero": {
+      "eyebrow": "Korkyt Ata Kyzylorda University",
+      "title": "Learn artificial intelligence from university instructors",
+      "subtitle": "Courses from the AI Institute Academy in Kazakh, Russian, English and Korean. Pass the quizzes and the final exam to earn a certificate that anyone can verify online.",
+      "browse": "Browse courses",
+      "verifyTitle": "Verify a certificate",
+      "verifyBody": "Check that a certificate was issued by the AI Institute Academy.",
+      "verifyLabel": "Certificate ID",
+      "verifyAction": "Verify"
+    },
+    "stats": {
+      "courses": "{count, plural, one {course} other {courses}}",
+      "tracks": "{count, plural, one {learning track} other {learning tracks}}",
+      "languages": "{count, plural, one {language of instruction} other {languages of instruction}}",
+      "learners": "{count, plural, one {learner} other {learners}}"
+    },
+    "tracks": {
+      "title": "Browse by track",
+      "subtitle": "Pick a direction and build skills course by course.",
+      "courseCount": "{count, plural, =0 {Coming soon} one {# course} other {# courses}}"
+    },
+    "popular": {
+      "title": "Most popular courses",
+      "subtitle": "What learners are enrolling in right now.",
+      "all": "All courses",
+      "empty": "Courses will appear here once they are published."
+    },
+    "how": {
+      "title": "How certification works",
+      "subtitle": "Every certificate is backed by completed coursework and can be checked online.",
+      "enroll": {
+        "title": "Enroll",
+        "body": "Create an account and join a course."
+      },
+      "learn": {
+        "title": "Learn and pass quizzes",
+        "body": "Work through video and text lessons. Each module ends with a quiz that unlocks the next one."
+      },
+      "certify": {
+        "title": "Get your certificate",
+        "body": "Finish every lesson and pass the final exam. A PDF certificate with a unique ID and QR code is issued automatically."
+      }
+    },
+    "cta": {
+      "title": "Start learning today",
+      "body": "Create a free account and enroll in your first course.",
+      "action": "Join for free",
+      "browse": "Browse courses"
+    },
+    "certificate": {
+      "title": "A certificate you can verify",
+      "body": "When you finish every lesson and pass the final exam, a PDF certificate is issued automatically. Anyone can check it online.",
+      "points": {
+        "name": "Your full name, as in your profile",
+        "course": "Course title and total hours",
+        "date": "Date of issue",
+        "id": "A unique certificate ID",
+        "qr": "A QR code that opens the verification page"
+      }
+    }
+  },
+  "Course": {
+    "provider": "AI Institute Academy",
+    "hours": "{hours} h",
+    "level": {
+      "BEGINNER": "Beginner",
+      "INTERMEDIATE": "Intermediate",
+      "ADVANCED": "Advanced"
+    },
+    "language": {
+      "kk": "Kazakh",
+      "ru": "Russian",
+      "en": "English",
+      "ko": "Korean"
+    }
+  },
+  "Tracks": {
+    "ai-foundations": {
+      "name": "AI Foundations",
+      "description": "Core ideas, history and ethics of AI, plus the math and Python you need."
+    },
+    "machine-learning": {
+      "name": "Machine Learning",
+      "description": "Supervised and unsupervised learning, model evaluation and feature engineering."
+    },
+    "deep-learning": {
+      "name": "Deep Learning",
+      "description": "Neural networks, backpropagation, CNNs, RNNs and transformers."
+    },
+    "computer-vision": {
+      "name": "Computer Vision",
+      "description": "Image classification, object detection and segmentation."
+    },
+    "nlp": {
+      "name": "Natural Language Processing",
+      "description": "Text processing, language models and NLP for Kazakh."
+    },
+    "ai-in-education": {
+      "name": "AI in Education",
+      "description": "Using AI tools for teaching, assessment and academic integrity."
+    }
+  },
+  "Footer": {
+    "tagline": "Online courses in artificial intelligence with verifiable certificates.",
+    "learn": "Learn",
+    "certificates": "Certificates",
+    "copyright": "AI Institute Academy · Korkyt Ata Kyzylorda University"
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "body": "The page you're looking for doesn't exist or has moved.",
+    "home": "Back to home"
+  },
+  "Auth": {
+    "passwordLabel": "Password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "loginOrEmailLabel": "Login or email",
+    "fullNameLabel": "Full name",
+    "fullNameHint": "First and last name, as it should appear on your certificate.",
+    "loginLabel": "Login",
+    "loginHint": "3–32 characters: Latin letters, digits, dot, underscore or hyphen.",
+    "courseYearLabel": "Year of study",
+    "courseYearPlaceholder": "Select your year",
+    "courseYearOption": "Year {year}",
+    "emailLabel": "Email (optional)",
+    "emailHint": "Used only to contact you about your account.",
+    "rules": {
+      "length": "At least 8 characters",
+      "symbol": "At least one special character, e.g. ! ? # $ _ -"
+    },
+    "signIn": {
+      "title": "Log in",
+      "subtitle": "Welcome back. Continue where you left off.",
+      "submit": "Log in",
+      "submitting": "Logging in…",
+      "noAccount": "New to AI Institute Academy?",
+      "noAccountAction": "Create an account"
+    },
+    "signUp": {
+      "title": "Create your account",
+      "subtitle": "Free. It takes a minute.",
+      "submit": "Create account",
+      "submitting": "Creating account…",
+      "haveAccount": "Already have an account?",
+      "haveAccountAction": "Log in"
+    },
+    "panel": {
+      "headline": "One account for every course and every certificate.",
+      "points": {
+        "one": "Courses in Kazakh, Russian, English and Korean",
+        "two": "Track your progress module by module",
+        "three": "Certificates anyone can verify online"
+      }
+    },
+    "errors": {
+      "invalid_credentials": "Wrong login or password.",
+      "rate_limited": "Too many attempts. Please wait a few minutes and try again.",
+      "internal": "Something went wrong on our side. Please try again.",
+      "network": "Can't reach the server. Check your connection and try again.",
+      "bad_request": "Something went wrong on our side. Please try again.",
+      "unsupported_media_type": "Something went wrong on our side. Please try again.",
+      "fullName_invalid": "Enter your first and last name using letters only.",
+      "login_invalid": "Use 3–32 Latin letters, digits, dots, underscores or hyphens.",
+      "login_taken": "This login is already taken.",
+      "email_invalid": "Enter a valid email address.",
+      "email_taken": "This email is already used by another account.",
+      "courseYear_required": "Select your year of study.",
+      "courseYear_invalid": "Select a year from 1 to 6.",
+      "password_too_short": "The password must be at least 8 characters.",
+      "password_too_long": "The password is too long (128 characters maximum).",
+      "password_needs_symbol": "Add at least one special character, e.g. ! ? # $ _ -"
+    },
+    "demo": {
+      "title": "Demo mode",
+      "credentials": "Login: {login} · Password: {password}",
+      "fill": "Fill in the demo account"
+    }
+  },
+  "Account": {
+    "title": "My account",
+    "fullName": "Full name",
+    "login": "Login",
+    "courseYear": "Year of study",
+    "email": "Email",
+    "memberSince": "Member since",
+    "notSet": "Not set",
+    "edit": "Edit profile",
+    "save": "Save",
+    "cancel": "Cancel",
+    "saved": "Profile saved.",
+    "myCourses": "My courses",
+    "noCourses": "You haven't enrolled in any course yet.",
+    "browse": "Browse courses",
+    "completed": "Completed",
+    "progress": "{percent}% complete",
+    "lessonsDone": "{done} of {total} lessons",
+    "progressLabel": "Progress in {title}",
+    "certificates": "My certificates",
+    "noCertificates": "Certificates appear here when you finish a course.",
+    "downloadPdf": "Download PDF",
+    "verifyPage": "Verification page",
+    "revoked": "revoked"
+  },
+  "Courses": {
+    "title": "Courses",
+    "subtitle": "Courses from the AI Institute Academy. Filter by track, level and language.",
+    "searchLabel": "Search",
+    "searchPlaceholder": "Course title or topic",
+    "track": "Track",
+    "level": "Level",
+    "language": "Language",
+    "all": "All",
+    "apply": "Apply",
+    "reset": "Reset",
+    "results": "{count, plural, =0 {No courses found} one {# course} other {# courses}}",
+    "empty": "No courses match these filters. Try removing a filter.",
+    "unavailable": "The catalog is temporarily unavailable. Please try again in a moment.",
+    "detail": {
+      "about": "About this course",
+      "outcomes": "What you'll learn",
+      "syllabus": "Syllabus",
+      "prerequisites": "Prerequisites",
+      "instructors": "Instructors",
+      "enroll": "Enroll for free",
+      "enrolled": "You're enrolled",
+      "goToAccount": "Go to my courses",
+      "enrollError": "Couldn't enroll. Please try again.",
+      "modulesAndLessons": "{modules, plural, one {# module} other {# modules}} · {lessons, plural, one {# lesson} other {# lessons}}",
+      "lessonsCount": "{count, plural, one {# lesson} other {# lessons}}",
+      "minutes": "{count} min",
+      "moduleQuiz": "Module quiz",
+      "finalExam": "Final exam",
+      "goToCourse": "Go to course"
+    }
+  },
+  "Certificate": {
+    "ariaLabel": "Sample certificate of completion",
+    "sample": "Sample",
+    "heading": "Certificate of completion",
+    "certify": "This is to certify that",
+    "name": "Nurlan Kulmurzaev",
+    "completed": "has successfully completed the course",
+    "course": "Machine Learning Fundamentals",
+    "hours": "{hours} hours",
+    "score": "Final exam: {score}%",
+    "dateLabel": "Date of issue",
+    "idLabel": "Certificate ID",
+    "director": "Director, AI Institute",
+    "scan": "Scan to verify",
+    "qrLabel": "QR code linking to the certificate verification page",
+    "signature": "N. Kulmurzaev",
+    "revoked": "Revoked"
+  },
+  "Learn": {
+    "outline": "Course contents",
+    "contents": "Course contents",
+    "courseInfo": "About this course",
+    "backToCourse": "Course overview",
+    "start": "Start course",
+    "continue": "Continue",
+    "progress": "{percent}% complete",
+    "progressLabel": "Course progress",
+    "unitsDone": "{done} of {total} steps done",
+    "locked": "Locked: finish the previous module first",
+    "moduleQuiz": "Module quiz",
+    "finalExam": "Final exam",
+    "minutes": "{count} min",
+    "next": "Next",
+    "markCompleteContinue": "Mark as complete and continue",
+    "markCompleteFinish": "Mark as complete",
+    "downloadPdf": "Download PDF",
+    "viewCertificate": "View certificate",
+    "certificateReady": "Your certificate is ready",
+    "certificateRevoked": "This certificate is no longer valid",
+    "errors": {
+      "generic": "Something went wrong. Please try again."
+    },
+    "quiz": {
+      "passMark": "Pass mark: {score}%",
+      "attempts": "Attempt {used} of {max}",
+      "bestScore": "Best score: {score}%",
+      "selectOne": "Select one answer",
+      "selectMany": "Select all that apply",
+      "answerAll": "Answer every question to submit.",
+      "submit": "Submit answers",
+      "submitting": "Checking…",
+      "passed": "You passed",
+      "notPassed": "Not passed yet",
+      "score": "Your score: {score}%",
+      "correctCount": "{correct} of {total} correct",
+      "correct": "Correct",
+      "incorrect": "Incorrect",
+      "retry": "Try again",
+      "continue": "Continue",
+      "backToCourse": "Course overview",
+      "noAttempts": "No attempts left for this test.",
+      "certificateIssued": "Your certificate has been issued",
+      "downloadPdf": "Download PDF",
+      "viewCertificate": "View certificate",
+      "errors": {
+        "generic": "Could not submit your answers. Please try again.",
+        "noAttempts": "No attempts left for this test."
+      }
+    }
+  },
+  "Verify": {
+    "title": "Verify a certificate",
+    "subtitle": "Enter the certificate ID printed on it, or scan its QR code.",
+    "valid": "Valid certificate",
+    "validBody": "This certificate was issued by AI Institute Academy.",
+    "revoked": "Certificate revoked",
+    "superseded": "Certificate replaced",
+    "invalidBody": "This certificate is no longer valid.",
+    "revokedOn": "Revoked on {date}",
+    "notFoundTitle": "Certificate not found",
+    "notFoundBody": "Check the ID and try again. IDs look like AIKAU-26-ABCD-EFGH.",
+    "holder": "Awarded to",
+    "course": "Course",
+    "issued": "Date of issue",
+    "id": "Certificate ID",
+    "hours": "Course length",
+    "hoursValue": "{hours} hours",
+    "score": "Final exam",
+    "download": "Download PDF"
+  },
+  "Demo": {
+    "banner": "Demo mode: no server behind this site. Data lives in memory and resets on restart. Sign in with {login} / {password}."
+  }
+}
