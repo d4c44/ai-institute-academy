@@ -1,11 +1,12 @@
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import type { CourseSummary } from "@/lib/api/catalog";
 import { trackName } from "./track-name";
 
-export async function CourseCard({ course }: { course: CourseSummary }) {
-  const t = await getTranslations("Course");
-  const tracks = await getTranslations("Tracks");
+// Used on the server (home page) and in the browser (the filterable course list).
+export function CourseCard({ course }: { course: CourseSummary }) {
+  const t = useTranslations("Course");
+  const tracks = useTranslations("Tracks");
   const languageKey = `language.${course.language}` as never;
 
   return (
