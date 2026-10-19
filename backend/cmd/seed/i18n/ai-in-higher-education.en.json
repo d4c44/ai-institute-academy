@@ -1,0 +1,507 @@
+{
+  "title": "Artificial Intelligence in Higher Education: Teaching, Management and Digital Transformation",
+  "summary": "A practical 72-hour course for university instructors and leaders: from prompting to redesigning assessment, from research to process automation and a 90-day plan for introducing AI in your unit.",
+  "description": "This course is the online part of an updated 72-academic-hour professional development programme for university instructors, heads of departments, deans and managers (18 hours of theory, 54 hours of practice). The main idea is not to memorise the names of services but to redesign a real work task with artificial intelligence, safely and measurably. The course rests on the principle that AI does not replace people but strengthens professional judgement.\n\nNine modules: AI literacy, professional prompting, designing a subject, assessment and academic integrity, multimodal content, research and analytics, process automation, the leader's strategy and security, and a final project. There are two tracks: the “AI Lab” for instructors and the “AI Workshop” for leaders. Each module ends with a short quiz and the course ends with a final exam. To receive a certificate you need to complete all lessons and pass all quizzes. Show your practical products and the final project to the course instructor.",
+  "outcomes": [
+    "Decide whether to use AI based on risk and benefit",
+    "Write a prompt in at least three iterations for one task and improve the result against criteria",
+    "Create a complete teaching package and an interactive element for one topic of your subject",
+    "Develop a rubric and a declaration form for assessing students' use of AI",
+    "Spot false facts, weak sources and cultural mismatches in AI answers",
+    "Analyse tabular data and prepare a short conclusion for a manager",
+    "Build an AI assistant or an automation prototype for a repetitive work process",
+    "Defend a 90-day plan for introducing AI in your unit, with KPIs and a risk register",
+    "Apply the rule of not entering confidential information into an external AI service and the limits of human oversight"
+  ],
+  "prerequisites": [
+    "Experience teaching or managing at a university",
+    "No programming skills required: being able to use a computer and the internet is enough"
+  ],
+  "modules": [
+    {
+      "title": "AI literacy and the digital transformation of the university",
+      "description": "How a model answers, when to use AI and how to check quality in Kazakh.",
+      "lessons": [
+        {
+          "title": "How a model answers",
+          "content": "Generative AI is a system based on a large language model (LLM). It predicts how a given text continues, choosing the words with the **highest probability**. That is why it can sound confident and still be wrong: this is called a *hallucination*.\n\n## Let's tell the concepts apart\n\n- **Machine learning** — a set of methods that learn patterns from data.\n- **Large language model** — a model trained on a very large amount of text.\n- **Generative AI** — systems that create text, images, sound and code.\n- **Search engine** — finds a ready source, while a model *composes* an answer.\n- **Agent** — a system that plans and carries out several steps by itself (search, open a document, write a letter). It must have points that a person approves.\n- **Automation** — repetitive work following a rule set in advance.\n\n## The main principle\n\nAI does not replace people; it strengthens professional judgement. The final decision, fact checking, and academic and managerial responsibility remain with a person."
+        },
+        {
+          "title": "The “Should we use AI?” matrix and quality in Kazakh",
+          "content": "For each work task ask four questions:\n\n| Criterion | Question |\n|---|---|\n| Importance | How serious are the consequences of a mistake? |\n| Risk | Is there a threat to the law, confidentiality or reputation? |\n| Repetitiveness | Does the task recur often? |\n| Data sensitivity | Are personal or confidential data needed? |\n\nA repetitive, low-risk task is a candidate for AI. Important decisions and decisions involving confidential data are made by a person only.\n\n## Quality in Kazakh\n\nThe **grammatical correctness** and the **cultural correctness** of a text are two different things. A model can write a grammatically correct sentence and still distort a custom, a term or etiquette. For example, when it describes concepts such as “қыз ұзату” or “бесіктің басына үкі тағу”, ask someone who knows the subject to check the result.\n\n## Practical assignment\n\nAnalyse your working week and split the tasks into three groups: **5** tasks where AI helps, **3** tasks that only a person decides, and **2** tasks that cannot be automated. The result is a personal task map."
+        }
+      ],
+      "quiz": {
+        "title": "Module 1 quiz",
+        "questions": [
+          {
+            "prompt": "How does a large language model compose an answer?",
+            "explanation": "The model predicts how the text continues by choosing the most probable words, so it can give a convincing-sounding but wrong answer.",
+            "options": [
+              "It understands meaning like a human and checks the truth",
+              "It predicts the continuation, choosing the most probable words",
+              "It copies a ready answer from a database"
+            ]
+          },
+          {
+            "prompt": "A repetitive, low-risk task can be a candidate for AI.",
+            "explanation": "Repetitiveness and low risk are signs that make a task suitable for AI.",
+            "options": [
+              "True",
+              "False"
+            ]
+          },
+          {
+            "prompt": "Select the criteria of the “Should we use AI?” matrix.",
+            "explanation": "The matrix assesses importance, risk, repetitiveness and data sensitivity. Typeface is not part of it.",
+            "options": [
+              "Importance",
+              "Risk",
+              "Data sensitivity",
+              "Typeface"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "Professional prompting and a personal AI workspace",
+      "description": "PROMPT-CANVAS, ways to improve a prompt, working with files and a personal prompt library.",
+      "lessons": [
+        {
+          "title": "PROMPT-CANVAS: the eight parts of a prompt",
+          "content": "A good prompt is a complete brief for a task. **PROMPT-CANVAS** has eight parts:\n\n1. **Goal** — what the result is needed for.\n2. **Context** — the audience, level and situation.\n3. **Data** — the material the model relies on: text, table, file.\n4. **Role** — who the model answers as.\n5. **Action** — exactly what to do.\n6. **Constraint** — what must not appear, length, language, sources to rely on.\n7. **Criterion** — what a good result looks like.\n8. **Format** — table, list, plan.\n\n## Techniques\n\n- **Zero-shot request** — a direct task without an example.\n- **Request with an example** — show one or two samples of the answer you want.\n- **Critic-reviewer loop** — ask the model to criticise its own answer against criteria and rewrite it.\n- **Comparing versions** — ask for two or three versions and pick the best."
+        },
+        {
+          "title": "Working with files, the prompt library and an agent scenario",
+          "content": "## Working from a file\n\n- Ask it to keep the structure of the document.\n- Require it to mark an unknown spot as **unknown**.\n- Open and check any reference given yourself.\n\n## Moving to repeated work\n\nInstead of writing the same prompt every time, turn a working prompt into a **template** and save it in a personal **library**: name, when to use it, variables, an example result. Split a complex task into an **agent scenario**: 1) collect data, 2) draft, 3) check, 4) approval by a person.\n\n## Practical assignment\n\nImprove one real task three times: plain prompt → PROMPT-CANVAS → critic-reviewer loop. Rate each version with a rubric (accuracy, structure, usability) and add the best prompt to the library. The aim is a personal library of 10 working prompts."
+        }
+      ],
+      "quiz": {
+        "title": "Module 2 quiz",
+        "questions": [
+          {
+            "prompt": "Which part of PROMPT-CANVAS describes what a good result looks like?",
+            "explanation": "The criterion defines the features by which a good result is measured.",
+            "options": [
+              "Role",
+              "Data",
+              "Criterion"
+            ]
+          },
+          {
+            "prompt": "What is it called when you ask the model to criticise its own answer against criteria and rewrite it?",
+            "explanation": "This is the critic-reviewer loop.",
+            "options": [
+              "Critic-reviewer loop",
+              "Zero-shot request",
+              "Working with a file"
+            ]
+          },
+          {
+            "prompt": "When working from a file, it is fine for the model to fill in unknown spots on its own.",
+            "explanation": "You must require it to mark the unknown as “unknown”, otherwise the model makes things up.",
+            "options": [
+              "True",
+              "False"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "The instructor's AI Lab: designing a subject",
+      "description": "From the learning outcome to the lecture, practice, rubric and interactive resource.",
+      "lessons": [
+        {
+          "title": "The alignment chain: from syllabus to teaching package",
+          "content": "Designing a subject starts with one chain: **learning outcome → topic → method → assignment → assessment**. If any link does not fit the others, the student understands neither what they are learning nor what they are graded for.\n\n## From the syllabus to the package\n\nFrom a syllabus, AI can draft a thematic plan, lecture notes, a practical or laboratory task, an independent-study assignment, a literature map and a rubric. The rule: you write the learning outcome **yourself**, and you get a draft of the rest from the model and check it against the learning outcome.\n\n## A checking question\n\nAsk of every material: which learning outcome does it serve? Remove any part with no answer."
+        },
+        {
+          "title": "An interactive resource and adapting to the level",
+          "content": "## An interactive resource\n\nWith AI you can create an **HTML mini-portal** or an LMS block for a topic: a short explanation, an example, a self-check question, a summary. You do not need to know programming: you describe the result, open the ready code in a browser and check it.\n\n## Adapting to the level\n\nAdapt one material to three levels:\n\n- **Weaker** — plain language, extra examples, a step-by-step guide.\n- **Middle** — the main version.\n- **Advanced** — a harder case and an open question.\n\n## Practical assignment\n\nAssemble one package for a topic of your subject: 1 lecture, 1 practical task, 1 rubric, 1 interactive element and a guide for the instructor."
+        }
+      ],
+      "quiz": {
+        "title": "Module 3 quiz",
+        "questions": [
+          {
+            "prompt": "Who should write the learning outcome when designing a subject?",
+            "explanation": "The instructor formulates the learning outcome; a draft of the other materials can come from the model.",
+            "options": [
+              "Only the model",
+              "The student",
+              "The instructor themselves"
+            ]
+          },
+          {
+            "prompt": "What should you do after creating an interactive resource?",
+            "explanation": "Open the result and check the content, whether the code works and whether it matches the learning outcome.",
+            "options": [
+              "Open the result and check the content",
+              "Publish without checking",
+              "Judge only its appearance"
+            ]
+          },
+          {
+            "prompt": "One material can be adapted for students of different levels.",
+            "explanation": "You can prepare versions for weaker, middle and advanced levels.",
+            "options": [
+              "True",
+              "False"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "Assessment 2.0 and academic integrity",
+      "description": "Assignments for the age of AI, assessing the process, the declaration and the rubric.",
+      "lessons": [
+        {
+          "title": "An AI-resistant assignment",
+          "content": "An assignment that AI completes in a minute is a weak assignment for assessment. It must be **redesigned**.\n\n## How to strengthen an assignment\n\n- **Local data** — real data of your organisation and region.\n- **A personal decision** — the student makes a choice depending on their own situation.\n- **Comparison** — compare two solutions against criteria.\n- **Finding errors** — find the mistakes in a ready AI answer.\n- **Oral defence** — defend the result.\n- **Audit trail** — prompt, version, correction.\n\n## Assessing the process\n\nAssess not only the final product but also the process: the request, sources, versions, corrections, reflection."
+        },
+        {
+          "title": "The AI-use declaration and the rubric",
+          "content": "## The AI-use declaration\n\nWhen submitting work, a student or an instructor answers four questions:\n\n1. Which tool was used?\n2. For what purpose?\n3. In which part of the work?\n4. How was the result checked?\n\nThe declaration is not a tool of punishment but a tool of **openness**.\n\n## The rubric\n\nIn a 100-point analytic rubric the criteria are assessed separately: content, checking of sources, own solution, trace of the process, reflection.\n\n## Practical assignment\n\nConvert one of your earlier assignments into an “AI-resistant” format, build a 100-point analytic rubric for it and add a declaration form."
+        }
+      ],
+      "quiz": {
+        "title": "Module 4 quiz",
+        "questions": [
+          {
+            "prompt": "What makes an assignment AI-resistant?",
+            "explanation": "Local data and an oral defence protect an assignment from easy reliance on a ready answer.",
+            "options": [
+              "Shortening the deadline",
+              "Local data and an oral defence",
+              "Increasing its length"
+            ]
+          },
+          {
+            "prompt": "The purpose of the AI-use declaration is openness.",
+            "explanation": "The declaration openly shows that AI was used; it is not a tool of punishment.",
+            "options": [
+              "True",
+              "False"
+            ]
+          },
+          {
+            "prompt": "Which questions are answered in the AI-use declaration?",
+            "explanation": "It states the tool, the purpose and how the result was checked. The price of the tool is not needed.",
+            "options": [
+              "Which tool was used",
+              "For what purpose",
+              "How the result was checked",
+              "How much the tool costs"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "Multimodal and inclusive teaching content",
+      "description": "Turning one idea into several formats, accessibility and labelling synthetic content.",
+      "lessons": [
+        {
+          "title": "One idea, several formats",
+          "content": "One idea can be presented as text, a slide, an infographic, an image, audio and video. When choosing a format the main criterion is **not beauty but clarity and the learning goal**.\n\n## Cognitive load\n\n- One slide — one idea.\n- Remove unnecessary decoration.\n- Explain a term the first time it appears.\n\n## Checking in Kazakh\n\nCheck the voice, subtitles, terms and cultural imagery (clothing, traditions, symbols): a synthetic voice and image can give a wrong stress or a false picture."
+        },
+        {
+          "title": "Copyright, accessibility and labelling",
+          "content": "## Copyright and sources\n\nContent created by AI may repeat other people's material. Cite sources and check the licence.\n\n## Labelling synthetic content\n\nImages, sound or video created by AI should be **openly labelled** in important teaching materials.\n\n## Accessibility\n\nAlternative text for images, subtitles for video, sufficient contrast, adaptation into Kazakh and Russian.\n\n## Practical assignment\n\nDevelop a 5–7-minute micro-lesson or an explanatory media package for a specific audience: a script, visuals, subtitles and a note that AI was used."
+        }
+      ],
+      "quiz": {
+        "title": "Module 5 quiz",
+        "questions": [
+          {
+            "prompt": "What is the main criterion when choosing the format of a visual?",
+            "explanation": "The main criterion is clarity and the learning goal, not beauty.",
+            "options": [
+              "Beauty",
+              "File size",
+              "Clarity and the learning goal"
+            ]
+          },
+          {
+            "prompt": "An image created by AI should be labelled in an important teaching material.",
+            "explanation": "Openly labelling synthetic content is part of responsible use.",
+            "options": [
+              "True",
+              "False"
+            ]
+          },
+          {
+            "prompt": "Which measure counts as accessibility?",
+            "explanation": "Alternative text for images and subtitles for video make material accessible to more people.",
+            "options": [
+              "Using only one format",
+              "Alternative text for images and subtitles for video",
+              "Setting the text in small type"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "AI in research, data and analytics",
+      "description": "The research question, checking sources, analysing data and presenting conclusions.",
+      "lessons": [
+        {
+          "title": "The research question and checking sources",
+          "content": "## Narrowing the research question\n\nMove from a general topic to a concrete question: who, where, when, what do we measure? AI can suggest a concept map and a search strategy (keywords, synonyms, period).\n\n## An invented reference\n\nA model writes just as confidently about articles and authors that do not exist. For each source:\n\n1. find it through a DOI or an official database;\n2. open the text and see that the quotation really exists;\n3. compare it with a second independent source.\n\nDo not put an unchecked reference into your work. Research ethics must also be respected: the rights and confidentiality of the data owner."
+        },
+        {
+          "title": "Analysing data and presenting conclusions",
+          "content": "## Tabular data\n\nAI helps clean data, compare it, find a trend or an anomaly and suggest a possible explanation. But check the calculations **yourself**: recalculate a few numbers by hand or in a spreadsheet program.\n\n## Presenting a conclusion to different audiences\n\nOne result can be told in different language: to the instructor — its methodological meaning, to the student — plain language, to the manager — the conclusion and the risk needed for a decision.\n\n## Practical assignment\n\nFrom a small data set make a chart and draw **3 conclusions**, **2 limitations** and **1 management recommendation**. The result is a one-page analytical note."
+        }
+      ],
+      "quiz": {
+        "title": "Module 6 quiz",
+        "questions": [
+          {
+            "prompt": "How do we detect an invented reference?",
+            "explanation": "Asking the model again is not checking: you must open the source yourself through a DOI or an official database.",
+            "options": [
+              "Open the source ourselves through a DOI or an official database",
+              "Ask the model “is this true?”",
+              "Trust it if the reference is nicely formatted"
+            ]
+          },
+          {
+            "prompt": "A calculation made by AI can be passed to a manager without checking.",
+            "explanation": "A calculation must always be checked: a model can make mistakes with numbers and arithmetic.",
+            "options": [
+              "True",
+              "False"
+            ]
+          },
+          {
+            "prompt": "Which parts should an analytical note contain?",
+            "explanation": "It should have conclusions, limitations and a management recommendation. There is no place for an unchecked assumption.",
+            "options": [
+              "Conclusions",
+              "Limitations",
+              "A management recommendation",
+              "An unchecked assumption"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "AI agents and automating university processes",
+      "description": "Assistant, automation and agent, the knowledge base, points that a person approves.",
+      "lessons": [
+        {
+          "title": "Assistant, automation and agent",
+          "content": "## The differences\n\n| Type | What it does | The person's role |\n|---|---|---|\n| Assistant | Answers a question, prepares a draft | Controls every step |\n| Automation | Does repetitive work following a rule set in advance | Writes the rule |\n| Agent | Plans and carries out several steps by itself | Sets the approval points |\n\n## Splitting a task into stages\n\nBefore automating, split the process into steps: input → processing → checking → approval → output. Mark which step AI does and which a person does.\n\n## Examples at a university\n\nA report, an official letter, meeting minutes, an event plan, a checklist, a translation."
+        },
+        {
+          "title": "The knowledge base, access and human approval",
+          "content": "## The knowledge base and the template\n\nSo that an agent answers reliably, give it the organisation's **knowledge base** (rules, sample documents) and **templates**. Before using a confidential document, check access and the data classification.\n\n## A person approves\n\nFor an action that goes outside or makes a decision (sending a letter, an order, a grade) put in a **point of human approval** and keep an **action log**.\n\n## Voice interface\n\nOn the road you can record an idea by voice and later check and approve it: here too the final decision is the person's.\n\n## Practical assignment\n\nMake a “now” and a “with AI” map of one repetitive university process, show a prototype and write a procedure: who approves what, and when."
+        }
+      ],
+      "quiz": {
+        "title": "Module 7 quiz",
+        "questions": [
+          {
+            "prompt": "What is the main difference between automation and an agent?",
+            "explanation": "Automation works by a set rule, while an agent plans and carries out several steps by itself.",
+            "options": [
+              "Automation works only with images",
+              "An agent plans and carries out several steps by itself",
+              "An agent never makes mistakes"
+            ]
+          },
+          {
+            "prompt": "An action that sends a letter outside needs a point of human approval.",
+            "explanation": "Actions that go outside or make a decision must not run without human approval.",
+            "options": [
+              "True",
+              "False"
+            ]
+          },
+          {
+            "prompt": "What should you do before automating a process?",
+            "explanation": "Split the process into steps and mark which step AI does and which a person does.",
+            "options": [
+              "Split it into steps and mark who does each step",
+              "Give every step to AI",
+              "Delete the source documents"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "The leader's AI Workshop: strategy, policy and security",
+      "description": "Prioritising initiatives, an AI policy, KPIs, a risk register and the protocol for safe use.",
+      "lessons": [
+        {
+          "title": "Prioritising AI initiatives and choosing a pilot",
+          "content": "Assess AI initiatives on four criteria: **impact**, **complexity**, **risk** and **data readiness**. Choose as the first pilot an initiative with high impact, low complexity and risk, and data that is ready.\n\n## A scenario before infrastructure\n\nBefore building an AI Hub or a lab, write the **user scenario** and the result indicator: who will use it, which task it solves, how we measure. Buying is the last step, not the first.\n\n## KPIs\n\nTime saved, cost, quality, satisfaction and risk are the basis for the decision to scale a solution."
+        },
+        {
+          "title": "The unit's AI policy and the 90-day plan",
+          "content": "## Three zones of AI use\n\n- **Allowed** — working with open data, drafting.\n- **Conditional** — internal data: only in an approved service and with human approval.\n- **Forbidden** — entering confidential and personal data into an external service, grading automatically.\n\n## The risk register and change management\n\nList the risks: description, likelihood, consequences, person in charge, measure. Train staff and communicate the change openly.\n\n## Practical assignment\n\nMake a 90-day plan for your unit: 3 KPIs, 5 risks, a responsibility matrix and a matrix of allowed / conditional / forbidden use."
+        },
+        {
+          "title": "The protocol for safe and responsible use",
+          "content": "In any task follow seven steps:\n\n1. **Classify the data** — decide whether it is open, internal, confidential or personal.\n2. **Enter the minimum** — remove names, personal ID numbers, grades, medical and HR information that the task does not need.\n3. **Choose the tool** — use an account and service approved by the organisation, check the licence and the data policy.\n4. **Check the result** — compare facts, calculations, references, quotations, legal provisions and cultural context with the source data.\n5. **A person approves** — grading, HR, financial, legal and strategic decisions are not made automatically.\n6. **Label the use** — in important teaching or media content openly say which part AI was used for.\n7. **Leave a trail** — in important processes keep a log of prompts, versions, corrections and approvals.\n\n> In short: goal — data — criterion — checking — human approval."
+        }
+      ],
+      "quiz": {
+        "title": "Module 8 quiz",
+        "questions": [
+          {
+            "prompt": "Which initiative is the right one to choose as the first pilot?",
+            "explanation": "An initiative with high impact, low complexity and risk and ready data raises the chance of success.",
+            "options": [
+              "The most expensive and complex one",
+              "One whose data has not been collected yet",
+              "One with high impact, low complexity and risk, and ready data"
+            ]
+          },
+          {
+            "prompt": "Buying infrastructure is the first step, before writing the user scenario.",
+            "explanation": "First the user scenario and the result indicator are written; buying is the last step.",
+            "options": [
+              "True",
+              "False"
+            ]
+          },
+          {
+            "prompt": "Which of these belongs to the zone where AI use is forbidden?",
+            "explanation": "Confidential and personal data must not be entered into an external service.",
+            "options": [
+              "Processing an internal document in an approved service with human approval",
+              "Entering confidential and personal data into an external service",
+              "Drafting with open data"
+            ]
+          },
+          {
+            "prompt": "Which steps are part of the safe-use protocol?",
+            "explanation": "The protocol consists of classifying data, entering the minimum and human approval. A result must not be published without checking.",
+            "options": [
+              "Classifying the data",
+              "Entering the minimum",
+              "Human approval",
+              "Publishing the result without checking"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "The final project: from use to implementation",
+      "description": "The structure of the project, the rubric, the defence and official resources.",
+      "lessons": [
+        {
+          "title": "The structure of the project and the assessment rubric",
+          "content": "The final project is a solution ready to be put into use at a real workplace.\n\n## The structure of the project\n\n1. **The problem** — a concrete user, process and starting indicator.\n2. **The prototype** — a working solution or a full demonstration.\n3. **Testing and quality criterion** — how the result was checked.\n4. **Security and ethics** — data, copyright, integrity, human oversight.\n5. **Measurable impact** — time, quality, cost or satisfaction.\n6. **A 90-day plan** — the person in charge and resources.\n\n## The assessment rubric (100 points)\n\n| Criterion | Points |\n|---|---|\n| Clarity of the problem | 10 |\n| Quality of the solution | 20 |\n| Practical product | 20 |\n| Measurable impact | 15 |\n| Security and ethics | 15 |\n| Scaling plan | 10 |\n| Presentation | 10 |"
+        },
+        {
+          "title": "The defence, final products and resources",
+          "content": "## The defence\n\nA **5-minute** demonstration and **3 minutes** of questions and answers. What is shown is not a pretty slide but a working prototype, a measurement and a security decision.\n\n## Final products\n\n**Instructor track:** lecture notes on a topic; a guide to the practical work; an independent-study assignment and a 100-point rubric; an interactive resource; an AI-use declaration; a library of 10 prompts.\n\n**Leader track:** a “now” and “with AI” map of one process; a one-page analytical note; a use matrix; a 90-day pilot plan; a KPI map and risk register; a plan for training staff and communicating the change.\n\n## Official resources and literature\n\n- The Laws of the Republic of Kazakhstan “On Education” and “On Personal Data and Its Protection”.\n- The Concept for the Development of Artificial Intelligence in the Republic of Kazakhstan for 2024–2029.\n- UNESCO: AI Competency Framework for Teachers (2024) and for Students (2024); Guidance for Generative AI in Education and Research (2023).\n- OECD AI Principles.\n- Mollick E. Co-Intelligence (2024); Bowen J., Watson C. Teaching with AI (2024).\n\n## Practical assignment\n\nShow your project to the course instructor. Then mark this lesson as complete and go on to the final exam."
+        }
+      ]
+    }
+  ],
+  "finalExam": {
+    "title": "Final exam",
+    "questions": [
+      {
+        "prompt": "What is the main danger of a generative AI answer?",
+        "explanation": "An answer can sound convincing but be wrong or invented: this is a hallucination.",
+        "options": [
+          "It is always too short",
+          "The model answers only in English",
+          "It can sound confident but be wrong"
+        ]
+      },
+      {
+        "prompt": "By the “Should we use AI?” matrix, which task is suitable for AI?",
+        "explanation": "A repetitive, low-risk task with open data is suitable for AI.",
+        "options": [
+          "A repetitive, low-risk task with open data",
+          "A one-off task involving confidential data",
+          "Giving a student a final grade"
+        ]
+      },
+      {
+        "prompt": "What is the “Criterion” in PROMPT-CANVAS for?",
+        "explanation": "The criterion defines what a good result is and makes it possible to check it.",
+        "options": [
+          "To state the name of the model",
+          "To choose the file format",
+          "To define what a good result looks like"
+        ]
+      },
+      {
+        "prompt": "A redesigned assignment, the learning outcome and the assessment rubric must be consistent with each other.",
+        "explanation": "The chain learning outcome → assignment → assessment must not be broken.",
+        "options": [
+          "True",
+          "False"
+        ]
+      },
+      {
+        "prompt": "What is a sign of an AI-resistant assignment?",
+        "explanation": "Local data, a personal decision and an oral defence protect an assignment from reliance on a ready answer.",
+        "options": [
+          "Local data, a personal decision and an oral defence",
+          "Only a large size",
+          "A short deadline"
+        ]
+      },
+      {
+        "prompt": "What is the right way to check a source?",
+        "explanation": "Opening the source yourself and comparing it with a second independent source is a real check.",
+        "options": [
+          "Trust a nicely formatted reference",
+          "Open it through an official database and compare with a second source",
+          "Ask the model again “is this true?”"
+        ]
+      },
+      {
+        "prompt": "Synthetic content created by AI should be labelled in an important teaching material.",
+        "explanation": "Openly labelling it increases trust and is part of responsible use.",
+        "options": [
+          "True",
+          "False"
+        ]
+      },
+      {
+        "prompt": "Where should the point of human approval be in an automated process?",
+        "explanation": "Before grading, sending a letter, or a financial or legal decision, human approval is mandatory.",
+        "options": [
+          "Only at the start of the process",
+          "It is not needed anywhere",
+          "Before grading, sending a letter, or a financial or legal decision"
+        ]
+      },
+      {
+        "prompt": "Select the steps of the protocol for safe and responsible use.",
+        "explanation": "Classifying data, entering the minimum and labelling the use are steps of the protocol. A confidential document must not be uploaded in full to an external service.",
+        "options": [
+          "Classifying the data",
+          "Entering the minimum",
+          "Labelling the use",
+          "Uploading a confidential document in full to an external service"
+        ]
+      },
+      {
+        "prompt": "What must a plan for introducing AI in a unit include?",
+        "explanation": "The plan needs measurable KPIs and a risk register: they are the basis for the decision to scale.",
+        "options": [
+          "Not telling the staff",
+          "KPIs and a risk register",
+          "Only advertising of a tool"
+        ]
+      }
+    ]
+  }
+}
